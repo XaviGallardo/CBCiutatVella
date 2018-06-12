@@ -27,11 +27,13 @@
 
 <?php
 
+// Para cambiar el formato de la fecha de: 29/12/1981 a: 1981/12/29  osea de d/m/a a: yyyy/m/d
+// implode('/',array_reverse(explode('/',$_POST['BtFecha_Nacimiento'])));
 if (isset($_POST['BtInsertar'])) {
    $error="";         
-   $objPaciente = new Persona($_POST['BtNombre'], $_POST['BtDNI'], $_POST['BtApellido1'],$_POST['BtApellido2'],$_POST['BtFecha_Nacimiento'],$_POST['BtTelefono'],$_POST['BteMail'],$_POST['BtDireccion'],$_POST['BtTipo'],$_POST['BtCategoria']);
+   $objPersona = new Persona(null, $_POST['BtDNI'], $_POST['BtNombre'], $_POST['BtApellido1'],$_POST['BtApellido2'],implode('/',array_reverse(explode('/',$_POST['BtFecha_Nacimiento']))),$_POST['BtTelefono'],$_POST['BteMail'],$_POST['BtDireccion'],$_POST['BtTipo'],$_POST['BtCategoria']);
    
-   $resultado = $objPersona -> insertar();
+   $resultado = $objPersona -> Insertar();
 
    // Motrar el resultado de los registro de la base de datos
     if ($resultado)

@@ -27,7 +27,7 @@ class Persona {
         $this->eMAil = $eMail;
         $this->Direccion = $Direccion;
         $this->Tipo = $Tipo;
-        $this->$Categoria = $Categoria;
+        $this->Categoria = $Categoria;
     }
 
 // Creamos los GET
@@ -111,7 +111,7 @@ class Persona {
 
     public function Insertar() {
         $objDataPersona = new DataPersona();
-        $resultado = $objDataPersona->Insertar($this->ID_Persona ,$this->DNI ,$this->Nombre ,$this->Apellido1 ,$this->Apellido2 ,$this->Fecha_Nacimiento ,$this->Telefono ,$this->eMAil ,$this->Direccion,$this->Tipo,$this->Categoria);
+        $resultado = $objDataPersona->Insertar($this->DNI ,$this->Nombre ,$this->Apellido1 ,$this->Apellido2 ,$this->Fecha_Nacimiento ,$this->Telefono ,$this->eMAil ,$this->Direccion ,$this->Tipo ,$this->Categoria);
         return $resultado;
     }
 

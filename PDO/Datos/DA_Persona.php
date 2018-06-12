@@ -7,13 +7,21 @@ class dataPersona {
 
 	const TABLA = 'personas';
 
-	public function Insertar($ID_Persona, $DNI, $Nombre, $Apellido1, $Apellido2, $Fecha_Nacimiento, $Telefono, $eMail, $Direccion, $Tipo, $Categoria) {
-    	$conexion = new Conexion();
+    public function Insertar($DNI, $Nombre, $Apellido1, $Apellido2, $Fecha_Nacimiento, $Telefono, $eMail, $Direccion, $Tipo, $Categoria) {
+        // $fecha = date_create($Fecha_Nacimiento);
+        // $fecha = date_format($fecha,"Y/m/d");
+
+        // $fecha=$Fecha_Nacimiento;
+        // echo $fecha;
+        // $nuevaFecha=implode('/',array_reverse(explode('/',$fecha)));
+
+        // echo $nuevaFecha;
+        // echo $fecha;                                 (STR_TO_DATE(REPLACE('15/01/2005','/','.') ,GET_FORMAT(date,'EUR')))
+        $conexion = new Conexion();
         
-        $consulta = $conexion->prepare('INSERT INTO ' . self::TABLA . ' (ID_Persona, DNI, Nombre, Apellido1, Apellido2, Fecha_Nacimiento, Telefono, eMail, Direccion, Tipo, Categoria) VALUES(:ID_Persona, :DNI, :Nombre, :Apellido1, :Apellido2, :Fecha_Nacimiento, :Telefono, :eMail, :Direccion, :Tipo, :Categoria)');
+        $consulta = $conexion->prepare('INSERT INTO ' . self::TABLA . ' (DNI, Nombre, Apellido1, Apellido2, Fecha_Nacimiento, Telefono, eMail, Direccion, Tipo, Categoria) VALUES (:DNI, :Nombre, :Apellido1, :Apellido2, :Fecha_Nacimiento, :Telefono, :eMail, :Direccion, :Tipo, :Categoria )');
 		
-		$consulta->bindParam(':ID_Persona', $ID_Persona);
-        $consulta->bindParam(':DNI', $DNI);
+		$consulta->bindParam(':DNI', $DNI);
         $consulta->bindParam(':Nombre', $Nombre);
         $consulta->bindParam(':Apellido1', $Apellido1);
         $consulta->bindParam(':Apellido2', $Apellido2);
@@ -24,7 +32,14 @@ class dataPersona {
         $consulta->bindParam(':Tipo', $Tipo);
         $consulta->bindParam(':Categoria', $Categoria);
 
+        echo $Fecha_Nacimiento;
+
         $resultado = $consulta->execute();
+
+        if (!$resultado) {
+            $error = $consulta->errorInfo()[2];
+            echo $error;
+        }
         $conexion = null;
 
 	    return $resultado;
