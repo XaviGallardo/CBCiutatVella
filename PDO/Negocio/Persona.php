@@ -13,8 +13,10 @@ class Persona {
     private $Telefono;
     private $eMail;
     private $Direccion;
+    private $Tipo;
+    private $Categoria;
 
-    public function __construct ($ID_Persona=null, $DNI=null, $Nombre=null, $Apellido1=null, $Apellido2=null, $Fecha_Nacimiento=null, $Telefono=null, $eMail=null, $Direccion=null) {
+    public function __construct ($ID_Persona=null, $DNI=null, $Nombre=null, $Apellido1=null, $Apellido2=null, $Fecha_Nacimiento=null, $Telefono=null, $eMail=null, $Direccion=null, $Tipo=null, $Categoria=null) {
         $this->ID_Persona = $ID_Persona;
         $this->DNI = $DNI;
         $this->Nombre = $Nombre;
@@ -24,7 +26,10 @@ class Persona {
         $this->Telefono = $Telefono;
         $this->eMAil = $eMail;
         $this->Direccion = $Direccion;
+        $this->Tipo = $Tipo;
+        $this->$Categoria = $Categoria;
     }
+
 // Creamos los GET
     public function getID_Persona() {
         return $this->ID_Persona;
@@ -57,6 +62,13 @@ class Persona {
     public function getDireccion() {
         return $this->Direccion;
     }
+    public function getTipo() {
+        return $this->Tipo;
+    }
+    public function getCategoria() {
+        return $this->Categoria;
+    }
+
     // Creamos los SET
     public function setID_Persona($ID_Persona) {
         $this->ID_Persona = $ID_Persona;
@@ -89,18 +101,23 @@ class Persona {
     public function setDireccion($Direccion) {
         $this->Direccion = $Direccion;
     }
-    
+    public function setTipo($Tipo) {
+        $this->Tipo = $Tipo;
+    }
+    public function setCategoria($Categoria) {
+        $this->Categoria = $Categoria;
+    }
 // Creamos las funciones básicas
 
     public function Insertar() {
         $objDataPersona = new DataPersona();
-        $resultado = $objDataPersona->Insertar($this->ID_Persona ,$this->DNI ,$this->Nombre ,$this->Apellido1 ,$this->Apellido2 ,$this->Fecha_Nacimiento ,$this->Telefono ,$this->eMAil ,$this->Direccion);
+        $resultado = $objDataPersona->Insertar($this->ID_Persona ,$this->DNI ,$this->Nombre ,$this->Apellido1 ,$this->Apellido2 ,$this->Fecha_Nacimiento ,$this->Telefono ,$this->eMAil ,$this->Direccion,$this->Tipo,$this->Categoria);
         return $resultado;
     }
 
     public function Modificar() {
         $objDataPersona = new DataPersona();
-        $resultado = $objDataPersona->Modificar($this->ID_Persona ,$this->DNI ,$this->Nombre ,$this->Apellido1 ,$this->Apellido2 ,$this->Fecha_Nacimiento ,$this->Telefono ,$this->eMAil ,$this->Direccion);
+        $resultado = $objDataPersona->Modificar($this->ID_Persona ,$this->DNI ,$this->Nombre ,$this->Apellido1 ,$this->Apellido2 ,$this->Fecha_Nacimiento ,$this->Telefono ,$this->eMAil ,$this->Direccion,$this->Tipo,$this->Categoria);
         return $resultado;
     }
     
@@ -111,11 +128,10 @@ class Persona {
     }
 
     public function buscarPorDNI($DNI) {
-
         $objDataPersona = new DataPersona();
         $registro = $objDataPersona->buscarPorDNI($DNI);
         if ($registro)
-            return new self($DNI, $registro['ID_Persona'],$registro['Nombre'],$registro['Apellido1'],$registro['Apellido2'],$registro['Fecha_Nacimiento'],$registro['Telefono'],$registro['eMAil'],$registro['Direccion']);
+            return new self($DNI, $registro['ID_Persona'],$registro['Nombre'],$registro['Apellido1'],$registro['Apellido2'],$registro['Fecha_Nacimiento'],$registro['Telefono'],$registro['eMAil'],$registro['Direccion'],$registro['Tipo'],$registro['Categoria']);
         else 
             return false;
     }
@@ -129,7 +145,7 @@ class Persona {
         else {
             $arrayPersonas = array();
             foreach ($arrayRegistros as $registro) {
-                $objgPersona = new Persona($registro['ID_Persona'] ,$registro['DNI'] ,$registro['Nombre'],$registro['Apellido1'],$registro['Apellido2'],$registro['Fecha_Nacimiento'],$registro['Telefono'],$registro['eMAil'],$registro['Direccion']);
+                $objgPersona = new Persona($registro['ID_Persona'] ,$registro['DNI'] ,$registro['Nombre'],$registro['Apellido1'],$registro['Apellido2'],$registro['Fecha_Nacimiento'],$registro['Telefono'],$registro['eMAil'],$registro['Direccion'],$registro['Tipo'],$registro['Categoria']);
                 $arrayPersonas[] = $objgPersona;
             }
 

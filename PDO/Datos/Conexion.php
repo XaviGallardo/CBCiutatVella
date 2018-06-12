@@ -2,7 +2,7 @@
 class Conexion extends PDO {
 	
 	private const DB_HOST = 'localhost';
-    private const DB_NAME = 'world';
+    private const DB_NAME = 'CBCV';
 	private const DB_USER = 'root';
 	private const DB_PASS = '';
 	
