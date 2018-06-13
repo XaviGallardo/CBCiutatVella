@@ -24,7 +24,7 @@ class Persona {
         $this->Apellido2 = $Apellido2;
         $this->Fecha_Nacimiento = $Fecha_Nacimiento; 
         $this->Telefono = $Telefono;
-        $this->eMAil = $eMail;
+        $this->eMail = $eMail;
         $this->Direccion = $Direccion;
         $this->Tipo = $Tipo;
         $this->Categoria = $Categoria;
@@ -57,7 +57,7 @@ class Persona {
         return $this->Telefono;
     }
     public function geteMail() {
-        return $this->eMAil;
+        return $this->eMail;
     }
     public function getDireccion() {
         return $this->Direccion;
@@ -111,13 +111,13 @@ class Persona {
 
     public function Insertar() {
         $objDataPersona = new DataPersona();
-        $resultado = $objDataPersona->Insertar($this->DNI ,$this->Nombre ,$this->Apellido1 ,$this->Apellido2 ,$this->Fecha_Nacimiento ,$this->Telefono ,$this->eMAil ,$this->Direccion ,$this->Tipo ,$this->Categoria);
+        $resultado = $objDataPersona->Insertar($this->DNI ,$this->Nombre ,$this->Apellido1 ,$this->Apellido2 ,$this->Fecha_Nacimiento ,$this->Telefono ,$this->eMail ,$this->Direccion ,$this->Tipo ,$this->Categoria);
         return $resultado;
     }
 
     public function Modificar() {
         $objDataPersona = new DataPersona();
-        $resultado = $objDataPersona->Modificar($this->ID_Persona ,$this->DNI ,$this->Nombre ,$this->Apellido1 ,$this->Apellido2 ,$this->Fecha_Nacimiento ,$this->Telefono ,$this->eMAil ,$this->Direccion,$this->Tipo,$this->Categoria);
+        $resultado = $objDataPersona->Modificar($this->ID_Persona,$this->DNI ,$this->Nombre ,$this->Apellido1 ,$this->Apellido2 ,$this->Fecha_Nacimiento ,$this->Telefono ,$this->eMail ,$this->Direccion,$this->Tipo,$this->Categoria);
         return $resultado;
     }
     
@@ -131,7 +131,7 @@ class Persona {
         $objDataPersona = new DataPersona();
         $registro = $objDataPersona->buscarPorDNI($DNI);
         if ($registro)
-            return new self($DNI, $registro['ID_Persona'],$registro['Nombre'],$registro['Apellido1'],$registro['Apellido2'],$registro['Fecha_Nacimiento'],$registro['Telefono'],$registro['eMAil'],$registro['Direccion'],$registro['Tipo'],$registro['Categoria']);
+            return new self($registro['ID_Persona'], $DNI,$registro['Nombre'],$registro['Apellido1'],$registro['Apellido2'],$registro['Fecha_Nacimiento'],$registro['Telefono'],$registro['eMail'],$registro['Direccion'],$registro['Tipo'],$registro['Categoria']);
         else 
             return false;
     }
