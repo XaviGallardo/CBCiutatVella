@@ -10,16 +10,16 @@
 
 <form action="InsertarPersona.php" method="post">
     <table border='2'>
-        <tr><td>Nombre: </td><td><input type="text" name="BtNombre"required> </td></tr>
-        <tr><td>DNI: </td><td><input type="text" name="BtDNI"required></td></tr>
-        <tr><td>Apellido1: </td><td><input type="text" name="BtApellido1"required></td></tr>
-        <tr><td>Apellido2: </td><td><input type="text" name="BtApellido2"required></td></tr>
-        <tr><td>Fecha de Nacimiento: </td><td><input type="date" name="BtFecha_Nacimiento"required></td></tr>
-        <tr><td>Telefono: </td><td><input type="tel" name="BtTelefono"required></td></tr>
-        <tr><td>eMail: </td><td><input type="email" name="BteMail"required></td></tr>
-        <tr><td>Direccion: </td><td><input type="text" name="BtDireccion"required></td></tr>
-        <tr><td>Tipo: </td><td><input type="text" name="BtTipo"required></td></tr>
-        <tr><td>Categoria: </td><td><input type="text" name="BtCategoria"required></td></tr>
+        <tr><td>Nombre: </td><td><input type="text" name="BtNombre" required> </td></tr>
+        <tr><td>DNI: </td><td><input type="text" name="BtDNI" required></td></tr>
+        <tr><td>Apellido1: </td><td><input type="text" name="BtApellido1" required></td></tr>
+        <tr><td>Apellido2: </td><td><input type="text" name="BtApellido2" required></td></tr>
+        <tr><td>Fecha de Nacimiento: </td><td><input type="date" name="BtFecha_Nacimiento" required></td></tr>
+        <tr><td>Telefono: </td><td><input type="tel" name="BtTelefono" required></td></tr>
+        <tr><td>eMail: </td><td><input type="email" name="BteMail" required></td></tr>
+        <tr><td>Direccion: </td><td><input type="text" name="BtDireccion" required></td></tr>
+        <tr><td>Tipo: </td><td><input type="text" name="BtTipo" required></td></tr>
+        <tr><td>Categoria: </td><td><input type="text" name="BtCategoria" required></td></tr>
     </table>
     <br>
     <input type="submit" value="INSERTAR" name="BtInsertar">
