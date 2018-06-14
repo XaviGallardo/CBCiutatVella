@@ -1,5 +1,9 @@
 <?php
     require "../Negocio/Persona.php";
+    $arrayOpciones[0]= 'Jugador';
+    $arrayOpciones[1]= 'Entrenador';
+    $arrayOpciones[2]= 'Entren/Jugador';
+    $arrayOpciones[3]= 'Otro';
 ?>
 
 <html>
@@ -10,7 +14,7 @@
 
 <form action="InsertarPersona.php" method="post">
     <table border='2'>
-        <tr><td>Nombre: </td><td><input type="text" name="BtNombre" required> </td></tr>
+        <tr><td>Nombre: </td><td><input type="text" name="BtNombre" placeholder="Nombre" required> </td></tr>
         <tr><td>DNI: </td><td><input type="text" name="BtDNI" required></td></tr>
         <tr><td>Apellido1: </td><td><input type="text" name="BtApellido1" required></td></tr>
         <tr><td>Apellido2: </td><td><input type="text" name="BtApellido2" required></td></tr>
@@ -18,9 +22,29 @@
         <tr><td>Telefono: </td><td><input type="tel" name="BtTelefono" required></td></tr>
         <tr><td>eMail: </td><td><input type="email" name="BteMail" required></td></tr>
         <tr><td>Direccion: </td><td><input type="text" name="BtDireccion" required></td></tr>
-        <tr><td>Tipo: </td><td><input type="text" name="BtTipo" required></td></tr>
+        <!-- <tr><td>Tipo: </td><td><input type="text" name="BtTipo" required></td></tr> -->
+        <tr><td>Tipo: </td><td><select name="BtTipo" id="BtTipo" required>
+        <option value="">Selecciona una opción</option>
+        <?php
+        foreach ($arrayOpciones as $opcion) 
+        {?>
+           <option value="<?php echo $opcion ?>"><?php echo $opcion ?></option>
+<?php   } ?> 
+
+    </select></td></tr>
         <tr><td>Categoria: </td><td><input type="text" name="BtCategoria" required></td></tr>
     </table>
+    <br>
+    <br>
+    <!-- <select name="BtTipo" id="BtTipo">
+        <option value="">Selecciona una opción</option>
+        <?php
+        foreach ($arrayOpciones as $opcion) 
+        {?>
+           <option value="<?php echo $opcion ?>"><?php echo $opcion ?></option>
+<?php   } ?> 
+
+    </select> -->
     <br>
     <input type="submit" value="INSERTAR" name="BtInsertar">
 </form>

@@ -1,5 +1,9 @@
 <?php
     require "../Negocio/Persona.php";
+    $arrayOpciones[0]= 'Jugador';
+    $arrayOpciones[1]= 'Entrenador';
+    $arrayOpciones[2]= 'Entren/Jugador';
+    $arrayOpciones[3]= 'Otro';
 ?>
 <?php 
 	session_start();
@@ -45,7 +49,16 @@ if (isset($_POST['BtBuscaDNI'])){
         <tr><td>Telefono: </td><td><input type="tel" value="<?php echo ($persona->getTelefono())?>" name="BtTelefono_M"required></td></tr>
         <tr><td>eMail: </td><td><input type="email" value="<?php echo ($persona->geteMail())?>" name="BteMail_M"required></td></tr>
         <tr><td>Direccion: </td><td><input type="text" value="<?php echo ($persona->getDireccion())?>" name="BtDireccion_M"required></td></tr>
-        <tr><td>Tipo: </td><td><input type="text" value="<?php echo ($persona->getTipo())?>" name="BtTipo_M"required></td></tr>
+        <!-- <tr><td>Tipo: </td><td><input type="text" value="<?php echo ($persona->getTipo())?>" name="BtTipo_M"required></td></tr> -->
+        <tr><td>Tipo: </td><td><select name="BtTipo_M" id="BtTipo_M" required>
+        <option value=""><?php echo ($persona->getTipo())?></option>
+        <?php
+        foreach ($arrayOpciones as $opcion) 
+        {?>
+           <option value="<?php echo $opcion ?>"><?php echo $opcion ?></option>
+<?php   } ?> 
+
+    </select></td></tr>
         <tr><td>Categoria: </td><td><input type="text" value="<?php echo ($persona->getCategoria())?>" name="BtCategoria_M"required></td></tr>
     </table>
     <br>

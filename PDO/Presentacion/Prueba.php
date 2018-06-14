@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php 
+    require "../Negocio/Usuario.php";
+    session_start();
+    
+    
+ ?>
 <html lang="en">
 
 <head>
@@ -8,28 +14,23 @@
     <title>Club Basquet Ciutat Vella Barcelona</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="../../style/main.css">
     <link rel="stylesheet" href="../../style/prueba.css">
     <link rel="icon" type="image/png" href="public/favicon.png" />
 </head>
-<?php 
-    require "/Applications/XAMPP/xamppfiles/htdocs/CBCV/CBCiutatVella/PDO/Negocio/Usuario.php";
-    session_start();
-    
-    
- ?>
 
-    
-    
+
     <main>
+    
+ 
         <!-- FORMULARIO DE LOG IN -->
             <body class="text-center">
                 <form class="form-signin" action="Prueba.php" method="post">
                 <img class="mb-4" src="../../public/pelota-basquet.png" alt="" width="72" height="72">
                 <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-                <label for="inputEmail" class="sr-only">User</label>
+                <label for="inputEmail" class="sr-only">Usuario</label>
                 <input type="text" id="inputEmail" class="form-control" placeholder="Usuario" name="BtUser" required autofocus>
-                <label for="inputPassword" class="sr-only">Pswd</label>
+                <label for="inputPassword" class="sr-only">Password</label>
                 <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="BtPswd" required>
                 <div class="checkbox mb-3">
                     <label>
@@ -68,8 +69,8 @@
     
  ?>
 
-
-    </main>
+</main>
+    
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
