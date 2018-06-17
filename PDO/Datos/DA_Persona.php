@@ -97,6 +97,17 @@ class dataPersona {
     }
 
 
+     public function ListarPorTipo() {
+        $conexion = new Conexion();
+        $consulta = $conexion->prepare('SELECT ID_Persona,DNI ,Nombre ,Apellido1 ,Apellido2 ,Fecha_Nacimiento ,Telefono ,eMAil ,Direccion, Tipo, Categoria  FROM ' . self::TABLA . ' WHERE Tipo = :Tipo');
+        $consulta->bindParam(':Tipo', $Tipo);
+        $consulta->execute();
+        $arrayRegistros = $consulta->fetchAll();
+        $conexion = null;
+
+        return $arrayRegistros;
+    }
+
     public function Listar() {
         $conexion = new Conexion();
         $consulta = $conexion->prepare('SELECT ID_Persona,DNI ,Nombre ,Apellido1 ,Apellido2 ,Fecha_Nacimiento ,Telefono ,eMAil ,Direccion, Tipo, Categoria  FROM ' . self::TABLA);

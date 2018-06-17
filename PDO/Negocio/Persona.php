@@ -136,6 +136,23 @@ class Persona {
             return false;
     }
 
+    public function ListarPorTipo($Tipo) {
+        $objDataPersona = new DataPersona();
+        $arrayRegistros = $objDataPersona->ListarPorTipo($Tipo);
+
+        if (!$arrayRegistros)
+            return false;
+        else {
+            $arrayPersonas = array();
+            foreach ($arrayRegistros as $registro) {
+                $objgPersona = new Persona($registro['ID_Persona'] ,$registro['DNI'] ,$registro['Nombre'],$registro['Apellido1'],$registro['Apellido2'],$registro['Fecha_Nacimiento'],$registro['Telefono'],$registro['eMAil'],$registro['Direccion'],$Tipo,$registro['Categoria']);
+                $arrayPersonas[] = $objgPersona;
+            }
+
+            return $arrayPersonas;
+        }
+    }
+
     public function Listar() {
         $objDataPersona = new DataPersona();
         $arrayRegistros = $objDataPersona->Listar();
