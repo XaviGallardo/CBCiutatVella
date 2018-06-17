@@ -1,3 +1,9 @@
+<?php 
+    require "/Applications/XAMPP/xamppfiles/htdocs/CBCV/CBCiutatVella/PDO/Negocio/Usuario.php";
+    session_start();
+    
+    
+ ?>
 <!DOCTYPE html>
 <?php 
     require "../Negocio/Usuario.php";
@@ -18,6 +24,10 @@
     <link rel="stylesheet" href="../../style/prueba.css">
     <link rel="icon" type="image/png" href="public/favicon.png" />
 </head>
+<<<<<<< HEAD
+=======
+
+>>>>>>> cc242bf9e7ba74431d6d25ad37e9f24a7dc946c9
 
 
     <main>
@@ -25,7 +35,7 @@
  
         <!-- FORMULARIO DE LOG IN -->
             <body class="text-center">
-                <form class="form-signin" action="Prueba.php" method="post">
+                <form class="form-signin"  method="post">
                 <img class="mb-4" src="../../public/pelota-basquet.png" alt="" width="72" height="72">
                 <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
                 <label for="inputEmail" class="sr-only">Usuario</label>
@@ -60,11 +70,21 @@
                 $user = $user->buscarPorUser($_POST['BtUser']) ;
                 $_SESSION["Usuario"] = $user->getUser();
                 $_SESSION["Role"] = $user->getRole();
-                header('Location: InsertarPersona.php');
+                $_SESSION["id"] = $user->getUser();
+                header('Location: ../../index.php');
+                // header('Location: InsertarPersona.php');
                 echo "El usuario:" . $_SESSION['Usuario'] . "y su Role es:" . $_SESSION['Role'] . "existe";
             }else
-                echo "NO TIENES CREDENCIALES";   
-        }
+                echo "NO TIENES CREDENCIALES"; 
+            ?>    
+                
+                    <a class="btn btn-lg btn-primary btn-block btn-sm" href="/CBCV/CBCiutatVella/index.php">Página Principal</a>
+                
+                
+        <?php 
+                
+    
+            } 
     
     
  ?>

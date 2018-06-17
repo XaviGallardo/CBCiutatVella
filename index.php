@@ -1,3 +1,11 @@
+
+<?php 
+    session_start();
+    
+    if (!isset($_SESSION['Role'])){
+    $_SESSION['Role'] = '0';
+    }
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,13 +35,56 @@
                     </a>
                     <a class="nav-item nav-link text-right" href="#">Features</a>
                     <a class="nav-item nav-link text-right" href="#">Pricing</a>
-                    <a class="nav-item nav-link text-right" href="#">Log In</a>
+                    
+                    <?php if(isset($_SESSION['id'])){ ?>
+                    <a class="nav-item nav-link text-right" href="/CBCV/CBCiutatVella/PDO/Presentacion/LogOut.php">Log Out</a>
+                    <?php }else{ ?>
+                    <a class="nav-item nav-link text-right" href="/CBCV/CBCiutatVella/PDO/Presentacion/Prueba.php">Log In</a>
+                    <?php } ?>
+
+
+
+
+                    <!-- <a class="nav-item nav-link text-right" href="/Applications/XAMPP/xamppfiles/htdocs/CBCV/CBCiutatVella/PDO/Presentacion/Prueba.php">Log In</a> -->
                 </div>
             </div>
         </nav>
         <!-- Anterior -->
         
     </header>
+    <main>
+        <section>
+            <?php
+                if ($_SESSION['Role'] == '5'){
+                 ?>   
+                   <div class="container-fluid justify-content-center bg-dark">
+                        <div class="container justify-content-center"><span class="badge badge-pill badge-success">FELLOWS</span></div>
+                    </div>
+                   
+                   <div class="btn-toolbar justify-content-center bg-dark" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <a class="btn btn-lg btn-success btn-block btn-sm" href="/CBCV/CBCiutatVella/PDO/Presentacion/InsertarPersona.php">New</a>
+                    </div>
+                    <div class="btn-group mr-2" role="group" aria-label="Second group">
+                        <a class="btn btn-lg btn-primary btn-block btn-sm" href="/CBCV/CBCiutatVella/PDO/Presentacion/ModificarPersona.php">Edit</a>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="Third group">
+                        <a class="btn btn-lg btn-danger btn-block btn-sm" href="/CBCV/CBCiutatVella/PDO/Presentacion/EliminarPersona.php">Delete</a>
+                    </div>
+                    </div>
+                   
+                    
+                    
+                    
+
+                <?php
+                }
+
+            ?>
+        </section>
+    </main>
+
+
     <div>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -78,11 +129,7 @@
         </div>
 
     </div>
-    <main>
-        <section>
-
-        </section>
-    </main>
+    
     <footer>
         <div class="pos-f-t">
             <div class="collapse" id="navbarToggleExternalContent">
