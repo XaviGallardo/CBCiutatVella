@@ -1,17 +1,14 @@
 <?php 
-    require "/Applications/XAMPP/xamppfiles/htdocs/CBCV/CBCiutatVella/PDO/Negocio/Usuario.php";
-    session_start();
-    
-    
- ?>
-<!DOCTYPE html>
-<?php 
+    // require "/CBCV/CBCiutatVella/PDO/Negocio/Usuario.php";
     require "../Negocio/Usuario.php";
     session_start();
     
     
+    
  ?>
-<html lang="en">
+<!DOCTYPE html>
+
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -22,12 +19,8 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="../../style/main.css">
     <link rel="stylesheet" href="../../style/prueba.css">
-    <link rel="icon" type="image/png" href="public/favicon.png" />
+    <link rel="icon" type="image/png" href="CBCiuatVella/public/favicon.png" />
 </head>
-<<<<<<< HEAD
-=======
-
->>>>>>> cc242bf9e7ba74431d6d25ad37e9f24a7dc946c9
 
 
     <main>
@@ -71,10 +64,14 @@
                 $_SESSION["Usuario"] = $user->getUser();
                 $_SESSION["Role"] = $user->getRole();
                 $_SESSION["id"] = $user->getUser();
-                header('Location: ../../index.php');
+                // header('Location: ../../index.php');
                 // header('Location: InsertarPersona.php');
+                echo '<script type="text/javascript">
+                            window.location = "../../index.php"
+                    </script>';
+                
                 echo "El usuario:" . $_SESSION['Usuario'] . "y su Role es:" . $_SESSION['Role'] . "existe";
-            }else
+            }else{
                 echo "NO TIENES CREDENCIALES"; 
             ?>    
                 
@@ -82,7 +79,7 @@
                 
                 
         <?php 
-                
+             }   
     
             } 
     

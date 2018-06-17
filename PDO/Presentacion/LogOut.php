@@ -1,3 +1,10 @@
+<?php 
+    // require "/CBCV/CBCiutatVella/PDO/Negocio/Usuario.php";
+    require "../Negocio/Usuario.php";
+    session_start();
+    
+    
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,12 +19,7 @@
     <link rel="stylesheet" href="../../style/prueba.css">
     <link rel="icon" type="image/png" href="public/favicon.png" />
 </head>
-<?php 
-    require "/Applications/XAMPP/xamppfiles/htdocs/CBCV/CBCiutatVella/PDO/Negocio/Usuario.php";
-    session_start();
-    
-    
- ?>
+
 
     
     
@@ -44,11 +46,14 @@
         
         <?php 
         if (isset($_POST['BtSigueLogIn'])) {
-            
-            header('Location: /CBCV/CBCiutatVella/index.php');
-            
-   
-            
+            // echo "HOLA";
+            // header('Location: /CBCV/CBCiutatVella/index.php');
+            // ob_start();
+            // header('Location: ../../index.php');
+            // exit();
+            echo '<script type="text/javascript">
+           window.location = "../../index.php"
+      </script>';
 
             
         }
@@ -59,8 +64,10 @@
 
             // destroy the session 
             session_destroy(); 
-            
-            header('Location: /CBCV/CBCiutatVella/index.php');
+            echo '<script type="text/javascript">
+           window.location = "../../index.php"
+      </script>';
+            // header('Location: /CBCV/CBCiutatVella/index.php');
         }
     
     
