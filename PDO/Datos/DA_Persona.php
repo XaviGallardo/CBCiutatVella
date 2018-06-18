@@ -96,6 +96,18 @@ class dataPersona {
         return $registro;
     }
 
+    public function buscarPorID_Persona($ID_Persona) {
+
+    	$conexion = new Conexion();
+        $consulta = $conexion->prepare('SELECT * FROM ' . self::TABLA . ' WHERE ID_Persona = :ID_Persona');
+        $consulta->bindParam(':ID_Persona', $ID_Persona);
+        $consulta->execute();
+        $registro = $consulta->fetch();
+        $conexion = null;
+      
+        return $registro;
+    }
+
 
      public function ListarPorTipo() {
         $conexion = new Conexion();

@@ -5,7 +5,7 @@ require_once 'Conexion.php';
 
 class dataEquipoJugador {
 
-	const TABLA = 'EquipoJugador';
+	const TABLA = 'Equipo_Jugador';
 
     public function Insertar($ID_Equipo, $ID_Jugador, $Dorsal) {
         // $fecha = date_create($Fecha_Nacimiento);
@@ -71,15 +71,18 @@ class dataEquipoJugador {
     }
 
     public function buscarPorID_Equipo($ID_Equipo) {
-
-    	$conexion = new Conexion();
+        $conexion = new Conexion();
         $consulta = $conexion->prepare('SELECT * FROM ' . self::TABLA . ' WHERE ID_Equipo = :ID_Equipo');
         $consulta->bindParam(':ID_Equipo', $ID_Equipo);
         $consulta->execute();
         $arrayRegistros = $consulta->fetchAll();
-        $conexion = null;
+        // print($consulta->queryString);
+        // echo " equipo= $ID_Equipo---";
+         $conexion = null;
+
+//        print_R($arrayRegistros);
       
-        return $registro;
+        return $arrayRegistros;
     }
 
 

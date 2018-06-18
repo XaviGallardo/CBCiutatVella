@@ -63,11 +63,18 @@ class EquipoJugador {
 
     public function buscarPorID_Equipo($ID_Equipo) {
         $objDataEquipoJugador = new DataEquipoJugador();
-        $registro = $objDataEquipoJugador->buscarPorID_Equipo($ID_Equipo);
-        if ($registro)
-            return new self($registro['ID_Equipo'],$registro['ID_Jugador'],$registro['Dorsal']);
-        else 
+        $arrayRegistros = $objDataEquipoJugador->buscarPorID_Equipo($ID_Equipo);
+        if (!$arrayRegistros)
             return false;
+        else {
+            $arrayEquipoJugadores = array();
+            foreach ($arrayRegistros as $registro) {
+                $objgEquipoJugador = new EquipoJugador($registro['ID_Equipo'] ,$registro['ID_Persona'] ,$registro['Dorsal']);
+                $arrayEquipoJugadores[] = $objgEquipoJugador;
+            }
+        return $arrayEquipoJugadores;
+        }
+            
     }
 
     public function Listar() {
@@ -77,13 +84,13 @@ class EquipoJugador {
         if (!$arrayRegistros)
             return false;
         else {
-            $arrayEquipoJugadors = array();
+            $arrayEquipoJugadores = array();
             foreach ($arrayRegistros as $registro) {
-                $objgEquipoJugador = new EquipoJugador($registro['ID_Equipo'] ,$registro['ID_Jugador'] ,$registro['Dorsal']);
-                $arrayEquipoJugadors[] = $objgEquipoJugador;
+                $objgEquipoJugador = new EquipoJugador($registro['ID_Equipo'] ,$registro['ID_Persona'] ,$registro['Dorsal']);
+                $arrayEquipoJugadores[] = $objgEquipoJugador;
             }
 
-            return $arrayEquipoJugadors;
+            return $arrayEquipoJugadores;
         }
     }
 

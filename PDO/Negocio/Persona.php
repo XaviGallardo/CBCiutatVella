@@ -136,6 +136,16 @@ class Persona {
             return false;
     }
 
+
+    public function buscarPorID_Persona($ID_Persona) {
+        $objDataPersona = new DataPersona();
+        $registro = $objDataPersona->buscarPorID_Persona($ID_Persona);
+        if ($registro)
+            return new self($ID_Persona, $registro['DNI'],$registro['Nombre'],$registro['Apellido1'],$registro['Apellido2'],$registro['Fecha_Nacimiento'],$registro['Telefono'],$registro['eMail'],$registro['Direccion'],$registro['Tipo'],$registro['Categoria']);
+        else 
+            return false;
+    }
+
     public function ListarPorTipo($Tipo) {
         $objDataPersona = new DataPersona();
         $arrayRegistros = $objDataPersona->ListarPorTipo($Tipo);

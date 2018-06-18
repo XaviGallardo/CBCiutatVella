@@ -1,6 +1,7 @@
 <?php
     require "../Negocio/EquipoJugador.php";
     require "../Negocio/Equipo.php";
+    require "../Negocio/Persona.php";
     // $arrayOpciones[0]= 'Masculino';
     // $arrayOpciones[1]= 'Femenino';
     // $arrayOpciones[2]= 'Mixto';
@@ -66,6 +67,11 @@ echo "<tr>";
 echo "</tr>";
 
 ?>
+
+
+
+
+
 <table border='2'>
 <thead>
 <tr>
@@ -79,22 +85,38 @@ echo "</tr>";
 <?php
 
 
-}
 
-// foreach ($arrayPersonas as $objPersona) {
-//     echo "<tr>";
-//         echo "<td>" .$objPersona->getNombre() . "</td>";
-//         echo "<td>" .$objPersona->getDNI() . "</td>";
-//         echo "<td>" .$objPersona->getApellido1() . "</td>";
-//         echo "<td>" .$objPersona->getApellido2() . "</td>";
-//         echo "<td>" .$objPersona->getFecha_Nacimiento() . "</td>";
-//         echo "<td>" .$objPersona->getTelefono() . "</td>";
-//         echo "<td>" .$objPersona->geteMail() . "</td>";
-//         echo "<td>" .$objPersona->getDireccion() . "</td>";
-//         echo "<td>" .$objPersona->getTipo() . "</td>";
-//         echo "<td>" .$objPersona->getCategoria() . "</td>";
-//     echo "</tr>";
-// }
+
+$objEquipoJugador = new EquipoJugador();
+$arrayEquipoJugadores = $objEquipoJugador -> buscarPorID_Equipo($Equipo2->getID_Equipo());
+
+// $arrayEquipoJugadores = $objEquipoJugador -> Listar();
+// echo ($Equipo2->getID_Equipo());
+// print_r($arrayEquipoJugadores);
+
+if (!$arrayEquipoJugadores){
+    echo "Todavía no hay Jugador@s asignados al Equipo.";
+}else{
+
+ foreach ($arrayEquipoJugadores as $equipoJugador) {
+    echo "<tr>";
+         echo "<td>" .$equipoJugador->getDorsal() . "</td>";
+         
+         $IDpersona = $equipoJugador->getID_Jugador();
+         $objPersona = new Persona();
+         $objPersona = $objPersona->buscarPorID_Persona($IDpersona);
+
+        echo "<td>" .$objPersona->getNombre() . "</td>";
+
+
+         
+        echo "<td>" .$objPersona->getApellido1() . "</td>";
+        echo "<td>" .$objPersona->getApellido2() . "</td>";
+
+     echo "</tr>";
+ }
+ }
+ }
 ?>
 
 
