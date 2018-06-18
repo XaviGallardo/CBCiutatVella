@@ -7,7 +7,7 @@ class dataEquipoJugador {
 
 	const TABLA = 'Equipo_Jugador';
 
-    public function Insertar($ID_Equipo, $ID_Jugador, $Dorsal) {
+    public function Insertar($ID_Equipo, $ID_Persona, $Dorsal) {
         // $fecha = date_create($Fecha_Nacimiento);
         // $fecha = date_format($fecha,"Y/m/d");
 
@@ -19,10 +19,10 @@ class dataEquipoJugador {
         // echo $fecha;                                 (STR_TO_DATE(REPLACE('15/01/2005','/','.') ,GET_FORMAT(date,'EUR')))
         $conexion = new Conexion();
         
-        $consulta = $conexion->prepare('INSERT INTO ' . self::TABLA . ' (ID_Equipo, ID_Jugador, Dorsal) VALUES (:ID_Equipo, :ID_Jugador, :Dorsal)');
+        $consulta = $conexion->prepare('INSERT INTO ' . self::TABLA . ' (ID_Equipo, ID_Persona, Dorsal) VALUES (:ID_Equipo, :ID_Persona, :Dorsal)');
 		
 		$consulta->bindParam(':ID_Equipo', $ID_Equipo);
-        $consulta->bindParam(':ID_Jugador', $ID_Jugador);
+        $consulta->bindParam(':ID_Persona', $ID_Persona);
         $consulta->bindParam(':Dorsal', $Dorsal);
 
         // echo $Fecha_Nacimiento;
@@ -38,13 +38,13 @@ class dataEquipoJugador {
 	    return $resultado;
     }
 
-    public function Modificar($ID_Equipo, $ID_Jugador, $Dorsal) {
+    public function Modificar($ID_Equipo, $ID_Persona, $Dorsal) {
         $conexion = new Conexion();
 
-        $consulta = $conexion->prepare('UPDATE ' . self::TABLA . ' SET ID_Equipo =:ID_Equipo, ID_Jugador = :ID_Jugador, Dorsal = :Dorsal WHERE ID_Equipo = :ID_Equipo');
+        $consulta = $conexion->prepare('UPDATE ' . self::TABLA . ' SET ID_Equipo =:ID_Equipo, ID_Persona = :ID_Persona, Dorsal = :Dorsal WHERE ID_Equipo = :ID_Equipo');
 
         $consulta->bindParam(':ID_Equipo', $ID_Equipo);
-        $consulta->bindParam(':ID_Jugador', $ID_Jugador);
+        $consulta->bindParam(':ID_Persona', $ID_Persona);
         $consulta->bindParam(':Dorsal', $Dorsal);
         
 

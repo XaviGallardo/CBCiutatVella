@@ -158,7 +158,7 @@ class Persona {
                 $objgPersona = new Persona($registro['ID_Persona'] ,$registro['DNI'] ,$registro['Nombre'],$registro['Apellido1'],$registro['Apellido2'],$registro['Fecha_Nacimiento'],$registro['Telefono'],$registro['eMAil'],$registro['Direccion'],$Tipo,$registro['Categoria']);
                 $arrayPersonas[] = $objgPersona;
             }
-
+          
             return $arrayPersonas;
         }
     }
