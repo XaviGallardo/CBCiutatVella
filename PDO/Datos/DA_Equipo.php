@@ -88,6 +88,18 @@ class dataEquipo {
         return $registro;
     }
 
+    public function buscarPorID_Equipo($ID_Equipo) {
+
+    	$conexion = new Conexion();
+        $consulta = $conexion->prepare('SELECT * FROM ' . self::TABLA . ' WHERE ID_Equipo = :ID_Equipo');
+        $consulta->bindParam(':ID_Equipo', $ID_Equipo);
+        $consulta->execute();
+        $registro = $consulta->fetch();
+        $conexion = null;
+      
+        return $registro;
+    }
+
 
     public function Listar() {
         $conexion = new Conexion();

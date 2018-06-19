@@ -103,6 +103,15 @@ class Equipo {
             return false;
     }
 
+    public function buscarPorID_Equipo($ID_Equipo) {
+        $objDataEquipo = new DataEquipo();
+        $registro = $objDataEquipo->buscarPorID_Equipo($ID_Equipo);
+        if ($registro)
+            return new self($ID_Equipo, $registro['Nombre'],$registro['Genero'],$registro['Categoria']);
+        else 
+            return false;
+    }
+
     public function Listar() {
         $objDataEquipo = new DataEquipo();
         $arrayRegistros = $objDataEquipo->Listar();

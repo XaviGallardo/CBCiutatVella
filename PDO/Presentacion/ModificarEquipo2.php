@@ -40,12 +40,42 @@ if (isset($_POST['BtBuscaEquipo'])){
     $_SESSION["NumEquipo"] = $equipo->getID_Equipo();
  }   
 
+//  ***************************************************************************
+
+$objEquipo = new Equipo();
+
+$arrayEquipos = $objEquipo -> Listar();
+
+
+?>
+
+
+<form action="ModificarEquipo2.php" method="post">
+    
+    <select name="BtEquipo" id="BtEquipo" required>
+        <option value="">Selecciona un Equipo</option>
+        <?php
+        foreach ($arrayEquipos as $Equipo) 
+        {?>
+           <option value="<?php echo $Equipo->getNombre() ?>"><?php echo $Equipo->getNombre() ." ". $Equipo->getGenero() ." ". $Equipo->getCategoria()  ?></option>
+<?php   } ?> 
+
+    </select>
+<br>
+
+<br>
+    <input type="submit" value="Añade Jugador" name="BtJugador2">
+    
+</form>
+
+
+<!-- ***************************************************************************** -->
 
 
 
 
 
-
+ 
 
 ?>
 <form action="ModificarEquipo.php" method="post">

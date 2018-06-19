@@ -55,9 +55,9 @@ class EquipoJugador {
         return $resultado;
     }
     
-    public function Eliminar(){
+    public function Eliminar( ){
         $objDataEquipoJugador = new DataEquipoJugador();
-        $resultado = $objDataEquipoJugador->Eliminar($this->ID_Equipo);
+        $resultado = $objDataEquipoJugador->Eliminar($this->ID_Equipo ,$this->ID_Jugador);
 	    return $resultado;
     }
 

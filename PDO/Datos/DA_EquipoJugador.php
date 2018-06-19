@@ -31,7 +31,7 @@ class dataEquipoJugador {
 
         if (!$resultado) {
             $error = $consulta->errorInfo()[2];
-            echo $error;
+            // echo $error;
         }
         $conexion = null;
 
@@ -60,10 +60,11 @@ class dataEquipoJugador {
 		return $resultado;
     }
 
-    public function Eliminar($ID_Equipo){
+    public function Eliminar($ID_Equipo, $ID_Persona){
         $conexion = new Conexion();
-        $consulta = $conexion->prepare('DELETE FROM ' . self::TABLA . ' WHERE ID_Equipo = :ID_Equipo');
+        $consulta = $conexion->prepare('DELETE FROM ' . self::TABLA . ' WHERE ID_Equipo = :ID_Equipo AND ID_Persona = :ID_Persona');
         $consulta->bindParam(':ID_Equipo', $ID_Equipo);
+        $consulta->bindParam(':ID_Persona', $ID_Persona);
         $resultado=$consulta->execute();
         $conexion = null;
 

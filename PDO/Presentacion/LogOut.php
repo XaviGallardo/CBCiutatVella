@@ -65,9 +65,10 @@
             // destroy the session 
             session_destroy(); 
             echo '<script type="text/javascript">
-           window.location = "../../index.php"
-      </script>';
-            // header('Location: /CBCV/CBCiutatVella/index.php');
+                    window.location = "../../index.php"
+                </script>';
+            
+                // header('Location: /CBCV/CBCiutatVella/index.php');
         }
     
     
