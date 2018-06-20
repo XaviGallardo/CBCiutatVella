@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
     <link rel="stylesheet" href="../../style/main.css">
-    <link rel="stylesheet" href="../../style/prueba.css">
+    <link rel="stylesheet" href="../../style/LogIn.css">
     <link rel="icon" type="image/png" href="CBCiuatVella/public/favicon.png" />
 </head>
 
@@ -35,11 +35,11 @@
                 <input type="text" id="inputEmail" class="form-control" placeholder="Usuario" name="BtUser" required autofocus>
                 <label for="inputPassword" class="sr-only">Password</label>
                 <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="BtPswd" required>
-                <div class="checkbox mb-3">
+                <!-- <div class="checkbox mb-3">
                     <label>
                     <input type="checkbox" value="remember-me"> Remember me
                     </label>
-                </div>
+                </div> -->
                 <button class="btn btn-lg btn-primary btn-block" type="submit" name="BtSign">Sign in</button>
                 <p class="mt-5 mb-3 text-muted">&copy; 2017-2018 CBCV</p>
                 </form>

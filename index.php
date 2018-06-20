@@ -7,7 +7,7 @@
     }
  ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -23,7 +23,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-            <a class="navbar-brand text-primary" href="#"><img src="public/logo-cbcv.jpg" width="80" height="90"  alt="logo CBCiutatVella">    CB Ciutat Vella</a>
+            <a class="navbar-brand text-primary" href="/CBCV/CBCiutatVella"><img src="public/logo-cbcv.jpg" width="80" height="90"  alt="logo CBCiutatVella">    CB Ciutat Vella</a>
             <button class="navbar-toggler  btn-link" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span ><img src="public/favicon.png" alt=""></span>
@@ -39,13 +39,13 @@
                     <?php if(isset($_SESSION['id'])){ ?>
                     <a class="nav-item nav-link text-right" href="/CBCV/CBCiutatVella/PDO/Presentacion/LogOut.php">Log Out</a>
                     <?php }else{ ?>
-                    <a class="nav-item nav-link text-right" href="/CBCV/CBCiutatVella/PDO/Presentacion/Prueba.php">Log In</a>
+                    <a class="nav-item nav-link text-right" href="/CBCV/CBCiutatVella/PDO/Presentacion/LogIn.php">Log In</a>
                     <?php } ?>
 
 
 
 
-                    <!-- <a class="nav-item nav-link text-right" href="/Applications/XAMPP/xamppfiles/htdocs/CBCV/CBCiutatVella/PDO/Presentacion/Prueba.php">Log In</a> -->
+                    <!-- <a class="nav-item nav-link text-right" href="/Applications/XAMPP/xamppfiles/htdocs/CBCV/CBCiutatVella/PDO/Presentacion/LogIn.php">Log In</a> -->
                 </div>
             </div>
         </nav>
@@ -88,7 +88,7 @@
                                 Resultados 
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Añadir</a>
+                                    <a class="dropdown-item" href="/CBCV/CBCiutatVella/PDO/Presentacion/InsertarPersona.php">Añadir</a>
                                     <a class="dropdown-item" href="#">Modificar</a>
                                     <a class="dropdown-item" href="#">Eliminar</a>
                                 </div>
@@ -98,9 +98,9 @@
                                 Socios 
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Añadir</a>
-                                    <a class="dropdown-item" href="#">Modificar</a>
-                                    <a class="dropdown-item" href="#">Eliminar</a>
+                                    <a class="dropdown-item" href="/CBCV/CBCiutatVella/PDO/Presentacion/InsertarPersona.php">Añadir</a>
+                                    <a class="dropdown-item" href="/CBCV/CBCiutatVella/PDO/Presentacion/ModificarPersona.php">Modificar</a>
+                                    <a class="dropdown-item" href="/CBCV/CBCiutatVella/PDO/Presentacion/EliminarPersona.php">Eliminar</a>
                                 </div>
                             </li>
                             <li class="nav-item active dropdown">
