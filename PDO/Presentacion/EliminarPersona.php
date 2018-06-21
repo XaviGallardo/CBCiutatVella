@@ -54,51 +54,101 @@
     
 
 
-<h1>ELIMINA MIEMBRO DEL CLUB</h1>
+    <h1>ELIMINA MIEMBRO DEL CLUB</h1>
 
-<!-- <h1>Aquí también implemetar la busqueda por el primer apellido u otros campos</h1> -->
+        <!-- <h1>Aquí también implemetar la busqueda por el primer apellido u otros campos</h1> -->
 
-<h2>Busca la persona que quieres ELIMINAR introduciendo su DNI.</h2>
+    <h2>Busca la persona que quieres ELIMINAR introduciendo su DNI.</h2>
 
-<form action="EliminarPersona.php" method="post">
-Introduce el DNI de la persona:
-    <input type="text" name="BuscaDNI"required><br>
-    <input type="submit" value="Busca DNI" name="BtBuscaDNI">
+    <div>
+            <form action="EliminarPersona.php" method="post">
+                Introduce el DNI de la persona:
+                <input type="text" name="BuscaDNI"><br>
+                <input type="submit" value="Busca DNI" name="BtBuscaDNI">
+                <input type="submit" value="SOCIOS" name="BtMuestraSocios">
+            </form>
+    </div>
 
-</form>
+    <div>
+        <?php
+        if (isset($_POST['BtBuscaDNI'])){
+
+           $error="";
+            $objPersona = new Persona();
+
+            $persona = $objPersona -> buscarPorDNI($_POST['BuscaDNI']);
+
+            if ($persona){
+                // print_r ($persona);
+                $_SESSION["NumSocio"] = $persona->getID_Persona();
+        ?>
+                    <form action="EliminarPersona.php" method="post">
+                        <h3>Vas a Eliminar al socio número:<?php echo ($_SESSION["NumSocio"])?></h3>
+                        <table border='2'>
+                            <tr><td>Nombre: </td><td><input type="text" value="<?php echo ($persona->getNombre())?>" name="BtNombre_E" required> </td></tr>
+                            <tr><td>DNI: </td><td><input type="text" value="<?php echo ($persona->getDNI())?>" name="BtDNI_E"required></td></tr>
+                            <tr><td>Apellido1: </td><td><input type="text" value="<?php echo ($persona->getApellido1())?>" name="BtApellido1_E"required></td></tr>
+                            <tr><td>Apellido2: </td><td><input type="text" value="<?php echo ($persona->getApellido2())?>" name="BtApellido2_E"required></td></tr>
+                            <tr><td>Fecha de Nacimiento: </td><td><input type="date" value="<?php echo ($persona->getFecha_Nacimiento())?>" name="BtFecha_Nacimiento_E"required></td></tr>
+                            <tr><td>Telefono: </td><td><input type="tel" value="<?php echo ($persona->getTelefono())?>" name="BtTelefono_E"required></td></tr>
+                            <tr><td>eMail: </td><td><input type="email" value="<?php echo ($persona->geteMail())?>" name="BteMail_E"required></td></tr>
+                            <tr><td>Direccion: </td><td><input type="text" value="<?php echo ($persona->getDireccion())?>" name="BtDireccion_E"required></td></tr>
+                            <tr><td>Tipo: </td><td><input type="text" value="<?php echo ($persona->getTipo())?>" name="BtTipo_E"required></td></tr>
+                            <tr><td>Categoria: </td><td><input type="text" value="<?php echo ($persona->getCategoria())?>" name="BtCategoria_E"required></td></tr>
+                        </table>
+                        <br>
+            
+                        <input type="submit" value="ELIMINA MIEMBRO" name="BtElimina">
+                    </form>
+    
+        <?php
+            }
+        }
+    ?> </div> 
+    
+    <div>
+    <?php
+
+
+    if (isset($_POST['BtMuestraSocios'])) {
+        $error="";
+        $objPersona = new Persona();
+
+        $arrayPersonas = $objPersona -> Listar();
+        // print_r($arrayPersonas);
+    // if ($arrayPersonas)
+
+    ?>
+    
+                <table border='2'>
+                    <thead>
+                    <tr>
+                        <td>DNI</td>
+                        <td>Nombre</td>
+                        <td>Apellido1</td>
+                        <td>Apellido2</td>
+                    </tr>
+                    </thead>
+
 <?php
-if (isset($_POST['BtBuscaDNI'])){
 
-    $error="";
-    $objPersona = new Persona();
-
-    $persona = $objPersona -> buscarPorDNI($_POST['BuscaDNI']);
-
-    if ($persona){
-// print_r ($persona);
-    $_SESSION["NumSocio"] = $persona->getID_Persona();
+                foreach ($arrayPersonas as $objPersona) {
+                    echo "<tr>";
+                        echo "<td>" .$objPersona->getDNI() . "</td>";
+                        echo "<td>" .$objPersona->getNombre() . "</td>";
+                        echo "<td>" .$objPersona->getApellido1() . "</td>";
+                        echo "<td>" .$objPersona->getApellido2() . "</td>";
+                    echo "</tr>";
+                }
+                echo "</table>";
 ?>
-<form action="EliminarPersona.php" method="post">
-        <h3>Vas a Eliminar al socio número:<?php echo ($_SESSION["NumSocio"])?></h3>
-    <table border='2'>
-        <tr><td>Nombre: </td><td><input type="text" value="<?php echo ($persona->getNombre())?>" name="BtNombre_E" required> </td></tr>
-        <tr><td>DNI: </td><td><input type="text" value="<?php echo ($persona->getDNI())?>" name="BtDNI_E"required></td></tr>
-        <tr><td>Apellido1: </td><td><input type="text" value="<?php echo ($persona->getApellido1())?>" name="BtApellido1_E"required></td></tr>
-        <tr><td>Apellido2: </td><td><input type="text" value="<?php echo ($persona->getApellido2())?>" name="BtApellido2_E"required></td></tr>
-        <tr><td>Fecha de Nacimiento: </td><td><input type="date" value="<?php echo ($persona->getFecha_Nacimiento())?>" name="BtFecha_Nacimiento_E"required></td></tr>
-        <tr><td>Telefono: </td><td><input type="tel" value="<?php echo ($persona->getTelefono())?>" name="BtTelefono_E"required></td></tr>
-        <tr><td>eMail: </td><td><input type="email" value="<?php echo ($persona->geteMail())?>" name="BteMail_E"required></td></tr>
-        <tr><td>Direccion: </td><td><input type="text" value="<?php echo ($persona->getDireccion())?>" name="BtDireccion_E"required></td></tr>
-        <tr><td>Tipo: </td><td><input type="text" value="<?php echo ($persona->getTipo())?>" name="BtTipo_E"required></td></tr>
-        <tr><td>Categoria: </td><td><input type="text" value="<?php echo ($persona->getCategoria())?>" name="BtCategoria_E"required></td></tr>
-    </table>
-    <br>
-    <input type="submit" value="ELIMINA MIEMBRO" name="BtElimina">
-</form>
-
+        
 <?php
 }
-}
+     
+
+    
+
 // Para cambiar el formato de la fecha de: 29/12/1981 a: 1981/12/29  osea de d/m/a a: yyyy/m/d
 // implode('/',array_reverse(explode('/',$_POST['BtFecha_Nacimiento'])));
 if (isset($_POST['BtElimina'])) {
@@ -130,24 +180,8 @@ if (isset($_POST['BtElimina'])) {
                     
 
 
-******************
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="#">SOCIOS</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                        <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="/CBCV/CBCiutatVella/PDO/Presentacion/InsertarPersona.php">Añadir <span class="sr-only">(current)</span></a>
-                        <a class="nav-item nav-link" href="/CBCV/CBCiutatVella/PDO/Presentacion/ModificarPersona.php">Modificar</a>
-                        <a class="nav-item nav-link" href="/CBCV/CBCiutatVella/PDO/Presentacion/EliminarPersona.php">Eliminar</a>
-                        
-                        </div>
-                    </div>
-                    </nav>
-
-******************
- <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
+<div>
+                    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -171,7 +205,8 @@ if (isset($_POST['BtElimina'])) {
                             
                         </div>
                     </nav>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+</div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
         crossorigin="anonymous"></script>

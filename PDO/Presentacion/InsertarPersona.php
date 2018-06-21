@@ -58,44 +58,80 @@
         
     </header>
     
-<h1>INSERTAR PERSONA DEL CLUB</h1>
+    
 
-<form action="InsertarPersona.php" method="post">
-    <table border='2'>
-        <tr><td>Nombre: </td><td><input type="text" name="BtNombre" placeholder="Nombre" required> </td></tr>
-        <tr><td>DNI: </td><td><input type="text" name="BtDNI" required></td></tr>
-        <tr><td>Apellido1: </td><td><input type="text" name="BtApellido1" required></td></tr>
-        <tr><td>Apellido2: </td><td><input type="text" name="BtApellido2" required></td></tr>
-        <tr><td>Fecha de Nacimiento: </td><td><input type="date" name="BtFecha_Nacimiento" required></td></tr>
-        <tr><td>Telefono: </td><td><input type="tel" name="BtTelefono" required></td></tr>
-        <tr><td>eMail: </td><td><input type="email" name="BteMail" required></td></tr>
-        <tr><td>Direccion: </td><td><input type="text" name="BtDireccion" required></td></tr>
-        <!-- <tr><td>Tipo: </td><td><input type="text" name="BtTipo" required></td></tr> -->
-        <tr><td>Tipo: </td><td><select name="BtTipo" id="BtTipo" required>
-        <option value="">Selecciona una opción</option>
-        <?php
-        foreach ($arrayOpciones as $opcion) 
-        {?>
-           <option value="<?php echo $opcion ?>"><?php echo $opcion ?></option>
-<?php   } ?> 
 
-    </select></td></tr>
-        <tr><td>Categoria: </td><td><input type="text" name="BtCategoria" required></td></tr>
-    </table>
-    <br>
-    <br>
-    <!-- <select name="BtTipo" id="BtTipo">
-        <option value="">Selecciona una opción</option>
-        <?php
-        foreach ($arrayOpciones as $opcion) 
-        {?>
-           <option value="<?php echo $opcion ?>"><?php echo $opcion ?></option>
-<?php   } ?> 
-
-    </select> -->
-    <br>
-    <input type="submit" value="INSERTAR" name="BtInsertar">
-</form>
+<div class="d-flex justify-content-center">
+    
+    <div class="col-lg-7">
+            <div class="card text-center">
+                    <div class="card-header">
+                        NUEVO SOCIO
+                    </div>
+                    <div class="card-body">
+                        <form action="InsertarPersona.php" method="post">
+                            
+                                <div class="form-group ">
+                                    <input type="text" name="BtDNI" required class="form-control" id="inputDNI" placeholder="DNI">
+                                </div>
+                                <div class="form-group ">
+                                    <input type="text" name="BtNombre" required class="form-control" id="inputNombre" placeholder="Nombre">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" name="BtApellido1" required class="form-control" id="inputApellido1" placeholder="Apellido1">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" name="BtApellido2" required class="form-control" id="inputApellido2" placeholder="Apellido2">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <label for="inpuinputFechaNacimiento" class="col-sm-3 col-form-label">Fecha Nacimiento</label>
+                                    <div class="form-group col-md-3">
+                                        <input type="date" name="BtFecha_Nacimiento" required class="form-control" id="inputFechaNacimiento" placeholder="Fecha Nacimiento">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="tel" name="BtTelefono" required class="form-control" id="inputTelefono" placeholder="Telefono">
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <input type="email" name="BteMail" required class="form-control" id="inputeMail" placeholder="eMail">
+                                </div>
+                                <div class="form-group ">
+                                    <input type="text" name="BtDireccion" required class="form-control" id="inputDireccion" placeholder="Direccion">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <select class="custom-select mr-sm-2" name="BtTipo" required id="inlineFormTipoSelect">
+                                            <option selected>Selecciona un tipo</option>
+                                            <?php
+                                                foreach ($arrayOpciones as $opcion) 
+                                            {?>
+                                            <option value="<?php echo $opcion ?>"><?php echo $opcion ?></option>
+                                    <?php   } ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" name="BtCategoria" required class="form-control" id="inputCategoria" placeholder="Categoria">
+                                    </div>
+                                </div>                
+                        
+                        
+                        
+                        
+                        <p class="card-text">Asegurate de cumplimentar todos los campos y que sean correctos.</p>
+                        <h5 class="card-title">GRACIAS</h5>
+                        <input type="submit" value="INSERTAR" name="BtInsertar" class="btn btn-primary">
+                        </form>
+                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    </div>
+                    <div class="card-footer text-muted">
+                        © CBCV
+                    </div>
+                </div>
+        </div>
+    
+</div>
 
 <a  href="/CBCV/CBCiutatVella/PDO/Presentacion/ModificarPersona.php">Modificar Socio</a>
 <a  href="/CBCV/CBCiutatVella/PDO/Presentacion/EliminarPersona.php">Eliminar Socio</a>
