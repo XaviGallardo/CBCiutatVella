@@ -64,7 +64,7 @@ foreach ($arrayPersonas as $objPersona) {
 
 }
 ?>
-
+</table>
  
 
 
