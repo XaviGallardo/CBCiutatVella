@@ -61,22 +61,23 @@
     <h2>Busca la persona que quieres ELIMINAR introduciendo su DNI.</h2>
 
     <div>
-            <form action="EliminarPersona.php" method="post">
+            <form action="EliminarPersona.php" method="get" id="BtBuscaDNI">
                 Introduce el DNI de la persona:
-                <input type="text" value="$_POST[ ]name="BuscaDNI"><br>
-                <input type="submit" value="Busca DNI" name="BtBuscaDNI">
+                <input type="text" value="" name="BuscaDNI" id="BuscaDNI"><br>
+                <input type="submit" value="Busca DNI" name="BtBuscaDNI" id="BtBuscaDNI">
                 <input type="submit" value="SOCIOS" name="BtMuestraSocios">
             </form>
     </div>
 
     <div>
         <?php
-        if (isset($_POST['BtBuscaDNI'])){
+        if (isset($_GET['BtBuscaDNI'])){
 
+        // echo ($_GET['BuscaDNI']);
            $error="";
             $objPersona = new Persona();
 
-            $persona = $objPersona -> buscarPorDNI($_POST['BuscaDNI']);
+            $persona = $objPersona -> buscarPorDNI($_GET['BuscaDNI']);
 
             if ($persona){
                 // print_r ($persona);
@@ -194,7 +195,7 @@
     <?php
 
 
-    if (isset($_POST['BtMuestraSocios'])) {
+    if (isset($_GET['BtMuestraSocios'])) {
         $error="";
         $objPersona = new Persona();
 
@@ -214,12 +215,12 @@
                      <!-- <div class="d-flex justify-content-center"> -->
     
                     <div class="col-xl-3 col-lg-6 col-md-6 ">
-                            <div class="card text-center">
+                            <div class="card text-center " style="margin-bottom: 50px;" >
                                     <div class="card-header"> 
                                         SOCIO #   <?php echo ($objPersona->getID_Persona())?>
                                     </div>    
                                     <div class="card-body">
-                                        <form action="EliminarPersona.php" method="post">
+                                        <form action="EliminarPersona.php" method="get">
 
                                             <div class="form-row">
                                                 <label for="inputDNI" class="col-sm-4 col-form-label">DNI</label>
@@ -249,7 +250,7 @@
                                             <p class="card-text">¿Quieres eliminar al socio?</p>
                                             <h5 class="card-title">DANGER</h5>
                                             
-                                            <input type="submit" value="ELIMINAR ???" name="BtEnviaEliminar?" class="btn btn-danger">
+                                            <input type="submit" form="FormBuscaDNI" value="ELIMINAR ???" name="BtEnviaEliminar" class="btn btn-danger EnviarEliminar">
                                         </form>
                                     </div>
 
@@ -280,7 +281,7 @@
 
 // Para cambiar el formato de la fecha de: 29/12/1981 a: 1981/12/29  osea de d/m/a a: yyyy/m/d
 // implode('/',array_reverse(explode('/',$_POST['BtFecha_Nacimiento'])));
-if (isset($_POST['BtElimina'])) {
+if (isset($_GET['BtElimina'])) {
 //    print ($_POST['BtDNI_M']);
     $error="";   
        
@@ -341,6 +342,84 @@ if (isset($_POST['BtElimina'])) {
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script> 
+
+        <script> 
+        var boton = $('.EnviarEliminar');
+        // var allowSubmit = false; 
+        // function cogerDNI() {
+        //      var DNI = $(this).parent()[0][0].value;
+        //     console.log(DNI);
+        //     $('#BuscaDNI').val(DNI);
+
+        // }
+
+        boton.click(function (e) {
+            e.preventDefault();
+            // var DNI = $(this).parent()[0][0].val();
+            var DNI = $(this).parent().find('#inputDNI').val();
+            console.log(DNI);
+            // $('#BuscaDNI').val(DNI);
+            // document.getElementById('BuscaDNI').value = DNI;
+            document.getElementById("BuscaDNI").setAttribute('value',DNI);
+            $('#BtBuscaDNI')[0][1];
+            console.log($('#BtBuscaDNI')[0][0]);
+            console.log($('#BtBuscaDNI')[0][1]);
+            // $('#BtBuscaDNI').submit();
+            // document.getElementById('BtBuscaDNI').submit();
+            pasarvariable(DNI);
+        });
+            
+            
+        
+       function pasarvariable(DNI)
+        {
+        location.href="EliminarPersona.php?BuscaDNI="+DNI+"&BtBuscaDNI=Busca+DNI";
+        }
+        
+
+       
+
+
+
+        // boton.click(cogerDNI());
+
+        // function clickEvent(e) {
+
+        //     if  (!allowSubmit){
+        //         e.preventDefault();
+        //     }
+
+        //     cogerDNI();
+        //     allowSubmit = true;
+        //     clickEvent(e);
+            
+        // }
+
+        // boton.click(clickEvent(e));
+
+        // function PasarDNI() {
+        //         var allowSubmit = false;
+
+        //         $('#FormBuscaDNI').on("submit",function(event){
+
+        //             if (!allowSubmit){
+        //                 event.preventDefault();
+                        
+        //                 cogerDNI();
+        //                 allowSubmit = true;
+                    
+
+
+
+        //             }
+        //         });
+
+        // };
+        // PasarDNI();
+
+
+
+        </script>
     
 </body>
 </html>
