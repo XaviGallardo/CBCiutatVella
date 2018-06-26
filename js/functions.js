@@ -33,4 +33,19 @@ boton.click(function (e) {
 function pasarvariable(DNI) {
     location.href = "EliminarPersona.php?BuscaDNI=" + DNI + "&BtBuscaDNI=Busca+DNI";
 }
+function pasarvariable2() {
+    location.href = "EliminarPersona.php?BuscaDNI=&BtMuestraSocios=SOCIOS";
+}
 
+// BuscaDNI =& BtMuestraSocios=SOCIOS
+
+var boton2 = $('.BtSocios');
+console.log(boton2);
+
+boton2.click(function (e) {
+    // document.getElementById("Encontrado").className += "NoEncontrado";
+     e.preventDefault();
+    document.getElementById("Encontrado").className += " NoEncontrado";
+    console.log(document.getElementById("Encontrado"));
+    pasarvariable2();
+});

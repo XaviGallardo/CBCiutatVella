@@ -14,7 +14,7 @@
     <title>Club Basquet Ciutat Vella Barcelona</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/CBCV/CBCiutatVella/style/EliminarPersona.css">
     <link rel="icon" type="image/png" href="/CBCV/CBCiutatVella/public/favicon.png" />
 </head>
 
@@ -51,36 +51,177 @@
         
     </header>
 <body>
+
+<section>
+            <?php
+                if ($_SESSION['Role'] == '5'){
+                 ?>   
+                   <!-- <div class="container-fluid justify-content-center bg-dark">
+                        <div class="container justify-content-center"><span class="badge badge-pill badge-success">FELLOWS</span></div>
+                    </div>
+                   
+                   <div class="btn-toolbar justify-content-center bg-dark" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <a class="btn btn-lg btn-success btn-block btn-sm" href="/CBCV/CBCiutatVella/PDO/Presentacion/InsertarPersona.php">New</a>
+                    </div>
+                    <div class="btn-group mr-2" role="group" aria-label="Second group">
+                        <a class="btn btn-lg btn-primary btn-block btn-sm" href="/CBCV/CBCiutatVella/PDO/Presentacion/ModificarPersona.php">Edit</a>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="Third group">
+                        <a class="btn btn-lg btn-danger btn-block btn-sm" href="/CBCV/CBCiutatVella/PDO/Presentacion/EliminarPersona.php">Delete</a>
+                    </div>
+                    </div>
+                    -->
+                    <!-- Prueba -->
+                    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Administración</a>
+
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                            
+                            <li class="nav-item active dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Resultados 
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="/CBCV/CBCiutatVella/PDO/Presentacion/InsertarPersona.php">Añadir</a>
+                                    <a class="dropdown-item" href="#">Modificar</a>
+                                    <a class="dropdown-item" href="#">Eliminar</a>
+                                </div>
+                            </li>
+                            <li class="nav-item active dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Socios 
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="/CBCV/CBCiutatVella/PDO/Presentacion/InsertarPersona.php">Añadir</a>
+                                    <a class="dropdown-item" href="/CBCV/CBCiutatVella/PDO/Presentacion/ModificarPersona.php">Modificar</a>
+                                    <a class="dropdown-item" href="/CBCV/CBCiutatVella/PDO/Presentacion/EliminarPersona.php">Eliminar</a>
+                                </div>
+                            </li>
+                            <li class="nav-item active dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Equipos
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Añadir</a>
+                                    <a class="dropdown-item" href="#">Modificar</a>
+                                    <a class="dropdown-item" href="#">Eliminar</a>
+                                </div>
+                            </li>
+                            </ul>
+                            <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                        </div>
+                        </nav>
+                    
+
+                <?php
+                }
+
+            ?>
+            <?php
+                if ($_SESSION['Role'] == '2'){
+                 ?>   
+                   <!-- <div class="container-fluid justify-content-center bg-dark">
+                        <div class="container justify-content-center"><span class="badge badge-pill badge-success">FELLOWS</span></div>
+                    </div>
+                   
+                   <div class="btn-toolbar justify-content-center bg-dark" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <a class="btn btn-lg btn-success btn-block btn-sm" href="/CBCV/CBCiutatVella/PDO/Presentacion/InsertarPersona.php">New</a>
+                    </div>
+                    <div class="btn-group mr-2" role="group" aria-label="Second group">
+                        <a class="btn btn-lg btn-primary btn-block btn-sm" href="/CBCV/CBCiutatVella/PDO/Presentacion/ModificarPersona.php">Edit</a>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="Third group">
+                        <a class="btn btn-lg btn-danger btn-block btn-sm" href="/CBCV/CBCiutatVella/PDO/Presentacion/EliminarPersona.php">Delete</a>
+                    </div>
+                    </div>
+                    -->
+                    <!-- Prueba -->
+                    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Equipos</a>
+
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                            
+                            <li class="nav-item active dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Asistencia 
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Añadir</a>
+                                    <a class="dropdown-item" href="#">Modificar</a>
+                                    <a class="dropdown-item" href="#">Eliminar</a>
+                                </div>
+                            </li>
+                           
+                            <li class="nav-item active dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Resultados
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Añadir</a>
+                                    <a class="dropdown-item" href="#">Modificar</a>
+                                    <a class="dropdown-item" href="#">Eliminar</a>
+                                </div>
+                            </li>
+                            </ul>
+                            <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                        </div>
+                        </nav>
+                    
+
+                <?php
+                }
+
+            ?>
+        </section>
     
-<div class="container">
+    <div id="Fondo" class="BoxBusca">
 
-    <h1>SECCIÓN DE BAJAS DEL CLUB</h1>
+        <div class="BoxBuscaContent">
 
-        <!-- <h1>Aquí también implemetar la busqueda por el primer apellido u otros campos</h1> -->
+            <h1>SECCIÓN DE BAJAS DEL CLUB</h1>
 
-    <h2>Busca el socio que quieres ELIMINAR introduciendo su DNI.</h2>
+                <!-- <h1>Aquí también implemetar la busqueda por el primer apellido u otros campos</h1> -->
 
-    <div>
-            <form  class="form-inline" action="EliminarPersona.php" method="get" id="BtBuscaDNI">
-                <div class="form-group">
-                    <label for="BuscaDNI"> Introduce el DNI de la persona: </label>
-                    <input type="text" value="" name="BuscaDNI" id="BuscaDNI" class="form-control mx-sm-3" aria-describedby="DNIHelpInline">
-                    <small id="passwordHelpInline" class="text-muted">
-                        8 Números + 1 Letra: AAAAAAAAX .
-                    </small>
+            <h2>Busca el socio que quieres ELIMINAR introduciendo su DNI.</h2>
+
+            <div>
+                    <form  class="form-inline" action="EliminarPersona.php" method="get" id="BtBuscaDNI">
+                        <div class="form-group">
+                            <label for="BuscaDNI"> Introduce el DNI de la persona: </label>
+                            <input type="text" value="" name="BuscaDNI" id="BuscaDNI" placeholder="00000000X" class="form-control mx-sm-3" aria-describedby="DNIHelpInline" size="9">
+                            <!-- <small id="DNIHelpInline" class="text-muted">
+                                8 Números + 1 Letra: 00000000X .
+                            </small> -->
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="submit" value="Busca DNI" name="BtBuscaDNI" id="BtBuscaDNI" class="btn btn-primary my-1">
+                        <input type="submit" value="SOCIOS" name="BtMuestraSocios" id="BtSocios"class="btn btn-primary my-1 BtSocios">
+                    </div>   
+                    </form>
             </div>
-            <br>
-            <div class="form-group">
-                <input type="submit" value="Busca DNI" name="BtBuscaDNI" id="BtBuscaDNI" class="btn btn-primary my-1">
-                <input type="submit" value="SOCIOS" name="BtMuestraSocios" class="btn btn-primary my-1">
-            </div>   
-            </form>
-    </div>
 
-</div>
+        </div>
    
 
-    <div>
+    <div class="Encontrado" id="Encontrado">
+
         <?php
         if (isset($_GET['BtBuscaDNI'])){
 
@@ -202,7 +343,7 @@
         }
     ?> </div> 
     
-    <div>
+    <!-- <div class="BoxTodoSocios"> -->
     <?php
 
 
@@ -308,7 +449,7 @@ if (isset($_GET['BtElimina'])) {
 }
 
 ?>
-                        
+                        <!-- BOTONES ACCESO DIRECTO -->
                    <div class="d-flex justify-content-center">
                         <div class="btn-group" role="group" aria-label="Basic example">
                         <a   href="/CBCV/CBCiutatVella/PDO/Presentacion/InsertarPersona.php" class="btn btn-secondary">Añadir </a>
@@ -319,9 +460,9 @@ if (isset($_GET['BtElimina'])) {
                     </div>
                     
                     
+     <!-- </div> Es el cierre del DIV del TODO  -->
 
-
-<div>
+<!-- <div>
                     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -346,7 +487,7 @@ if (isset($_GET['BtElimina'])) {
                             
                         </div>
                     </nav>
-</div>
+</div> -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
