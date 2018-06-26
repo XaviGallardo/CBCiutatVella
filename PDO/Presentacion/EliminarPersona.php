@@ -52,22 +52,33 @@
     </header>
 <body>
     
+<div class="container">
 
-
-    <h1>ELIMINA MIEMBRO DEL CLUB</h1>
+    <h1>SECCIÓN DE BAJAS DEL CLUB</h1>
 
         <!-- <h1>Aquí también implemetar la busqueda por el primer apellido u otros campos</h1> -->
 
-    <h2>Busca la persona que quieres ELIMINAR introduciendo su DNI.</h2>
+    <h2>Busca el socio que quieres ELIMINAR introduciendo su DNI.</h2>
 
     <div>
-            <form action="EliminarPersona.php" method="get" id="BtBuscaDNI">
-                Introduce el DNI de la persona:
-                <input type="text" value="" name="BuscaDNI" id="BuscaDNI"><br>
-                <input type="submit" value="Busca DNI" name="BtBuscaDNI" id="BtBuscaDNI">
-                <input type="submit" value="SOCIOS" name="BtMuestraSocios">
+            <form  class="form-inline" action="EliminarPersona.php" method="get" id="BtBuscaDNI">
+                <div class="form-group">
+                    <label for="BuscaDNI"> Introduce el DNI de la persona: </label>
+                    <input type="text" value="" name="BuscaDNI" id="BuscaDNI" class="form-control mx-sm-3" aria-describedby="DNIHelpInline">
+                    <small id="passwordHelpInline" class="text-muted">
+                        8 Números + 1 Letra: AAAAAAAAX .
+                    </small>
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="submit" value="Busca DNI" name="BtBuscaDNI" id="BtBuscaDNI" class="btn btn-primary my-1">
+                <input type="submit" value="SOCIOS" name="BtMuestraSocios" class="btn btn-primary my-1">
+            </div>   
             </form>
     </div>
+
+</div>
+   
 
     <div>
         <?php
@@ -167,7 +178,7 @@
 
 
 
-                    <form action="EliminarPersona.php" method="post">
+                    <!-- <form action="EliminarPersona.php" method="post">
                         <h3>Vas a Eliminar al socio número:<?php echo ($_SESSION["NumSocio"])?></h3>
                         <table border='2'>
                             <tr><td>Nombre: </td><td><input type="text" value="<?php echo ($persona->getNombre())?>" name="BtNombre_E" required> </td></tr>
@@ -185,7 +196,7 @@
             
                         <input type="submit" value="ELIMINA MIEMBRO" name="BtElimina">
                     </form>
-    
+     -->
         <?php
             }
         }
@@ -247,10 +258,10 @@
                                                 </div>
                                             </div>
 
-                                            <p class="card-text">¿Quieres eliminar al socio?</p>
-                                            <h5 class="card-title">DANGER</h5>
+                                            <p class="card-text">Si Quieres eliminar al socio, verifica antes todos sus datos.</p>
+                                            <h5 class="card-title">La acción de eliminar no es reversible.</h5>
                                             
-                                            <input type="submit" form="FormBuscaDNI" value="ELIMINAR ???" name="BtEnviaEliminar" class="btn btn-danger EnviarEliminar">
+                                            <input type="submit" form="FormBuscaDNI" value="VERIFICAR" name="BtEnviaEliminar" class="btn btn-warning EnviarEliminar">
                                         </form>
                                     </div>
 
@@ -342,9 +353,10 @@ if (isset($_GET['BtElimina'])) {
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script> 
-
-        <script> 
-        var boton = $('.EnviarEliminar');
+    <script src="/CBCV/CBCiutatVella/js/functions.js"> </script>
+        <!-- <script> 
+        
+            var boton = $('.EnviarEliminar');
         // var allowSubmit = false; 
         // function cogerDNI() {
         //      var DNI = $(this).parent()[0][0].value;
@@ -353,35 +365,35 @@ if (isset($_GET['BtElimina'])) {
 
         // }
 
-        boton.click(function (e) {
-            e.preventDefault();
+            boton.click(function (e) {
+                e.preventDefault();
             // var DNI = $(this).parent()[0][0].val();
-            var DNI = $(this).parent().find('#inputDNI').val();
-            console.log(DNI);
+                var DNI = $(this).parent().find('#inputDNI').val();
+                console.log(DNI);
             // $('#BuscaDNI').val(DNI);
             // document.getElementById('BuscaDNI').value = DNI;
-            document.getElementById("BuscaDNI").setAttribute('value',DNI);
-            $('#BtBuscaDNI')[0][1];
-            console.log($('#BtBuscaDNI')[0][0]);
-            console.log($('#BtBuscaDNI')[0][1]);
+                document.getElementById("BuscaDNI").setAttribute('value',DNI);
+                $('#BtBuscaDNI')[0][1];
+                console.log($('#BtBuscaDNI')[0][0]);
+                console.log($('#BtBuscaDNI')[0][1]);
             // $('#BtBuscaDNI').submit();
             // document.getElementById('BtBuscaDNI').submit();
-            pasarvariable(DNI);
+                pasarvariable(DNI);
         });
             
             
         
-       function pasarvariable(DNI)
+        function pasarvariable(DNI)
         {
-        location.href="EliminarPersona.php?BuscaDNI="+DNI+"&BtBuscaDNI=Busca+DNI";
+            location.href="EliminarPersona.php?BuscaDNI="+DNI+"&BtBuscaDNI=Busca+DNI";
         }
         
 
        
+         </script> -->
 
 
-
-        // boton.click(cogerDNI());
+        <!-- // boton.click(cogerDNI());
 
         // function clickEvent(e) {
 
@@ -415,11 +427,11 @@ if (isset($_GET['BtElimina'])) {
         //         });
 
         // };
-        // PasarDNI();
+        // PasarDNI(); -->
 
 
 
-        </script>
+       
     
 </body>
 </html>

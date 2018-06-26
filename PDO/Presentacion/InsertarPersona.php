@@ -21,7 +21,7 @@
     <title>Club Basquet Ciutat Vella Barcelona</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/CBCV/CBCiutatVella/style/InsertarPersona.css">
     <link rel="icon" type="image/png" href="/CBCV/CBCiutatVella/public/favicon.png" />
 </head>
 
@@ -61,7 +61,7 @@
     
 
 
-<div class="d-flex justify-content-center">
+<div id="Fondo" class="d-flex justify-content-center">
     
     <div class="col-lg-7">
             <div class="card text-center">
@@ -133,9 +133,9 @@
     
 </div>
 
-<a  href="/CBCV/CBCiutatVella/PDO/Presentacion/ModificarPersona.php">Modificar Socio</a>
+<!-- <a  href="/CBCV/CBCiutatVella/PDO/Presentacion/ModificarPersona.php">Modificar Socio</a>
 <a  href="/CBCV/CBCiutatVella/PDO/Presentacion/EliminarPersona.php">Eliminar Socio</a>
-                    
+                     -->
 
 <?php
 

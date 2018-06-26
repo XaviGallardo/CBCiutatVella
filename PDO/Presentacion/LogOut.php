@@ -13,8 +13,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Club Basquet Ciutat Vella Barcelona</title>
+    <link rel="stylesheet" href="/CBCV/CBCiutatVella/style/reset.css">  
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
+         
+    <link rel="stylesheet" href="/CBCV/CBCiutatVella/style/LogOut.css">    
     <link rel="stylesheet" href="/main.css">
     <link rel="stylesheet" href="../../style/prueba.css">
     <link rel="icon" type="image/png" href="public/favicon.png" />
@@ -25,24 +28,28 @@
     
     <main>
         <!-- FORMULARIO DE LOG OUT -->
+            
             <body class="text-center">
-                <form class="form-signin"  method="post">
-                <img class="mb-4" src="../../public/pelota-basquet.png" alt="" width="72" height="72">
-                <h1 class="h3 mb-3 font-weight-normal">HAS TERMINADO?</h1>
-                <!-- <label for="inputEmail" class="sr-only">User</label> -->
-                <!-- <input type="text" id="inputEmail" class="form-control" placeholder="Usuario" name="BtUser" required autofocus> -->
-                <!-- <label for="inputPassword" class="sr-only">Pswd</label> -->
-                <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="BtPswd" required> -->
-                <!-- <div class="checkbox mb-3"> -->
-                    <!-- <label> -->
-                    <!-- <input type="checkbox" value="remember-me"> Remember me -->
-                    <!-- </label> -->
-                <!-- </div> -->
-                <button class="btn btn-lg btn-primary btn-block" type="submit" name="BtSigueLogIn">Continuar Logueado</button>
-                <button class="btn btn-lg btn-primary btn-block" type="submit" name="BtLogOut">Log Out</button>
-                <p class="mt-5 mb-3 text-muted">&copy; 2017-2018 CBCV</p>
-                </form>
+                <div class="container">
+                    <form class="form-signin"  method="post">
+                    <img class="mb-4" src="../../public/pelota-basquet.png" alt="" width="72" height="72">
+                    <h1 class="h3 mb-3 font-weight-normal">HAS TERMINADO?</h1>
+                    <!-- <label for="inputEmail" class="sr-only">User</label> -->
+                    <!-- <input type="text" id="inputEmail" class="form-control" placeholder="Usuario" name="BtUser" required autofocus> -->
+                    <!-- <label for="inputPassword" class="sr-only">Pswd</label> -->
+                    <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="BtPswd" required> -->
+                    <!-- <div class="checkbox mb-3"> -->
+                        <!-- <label> -->
+                        <!-- <input type="checkbox" value="remember-me"> Remember me -->
+                        <!-- </label> -->
+                    <!-- </div> -->
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" name="BtSigueLogIn">Continuar Logueado</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" name="BtLogOut">Log Out</button>
+                    <p class="mt-5 mb-3 text-muted">&copy; 2017-2018 CBCV</p>
+                    </form>
+                </div>
             </body>
+
         
         <?php 
         if (isset($_POST['BtSigueLogIn'])) {

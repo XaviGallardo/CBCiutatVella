@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Club Basquet Ciutat Vella Barcelona</title>
+    <link rel="stylesheet" href="/CBCV/CBCiutatVella/style/index.css"> 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
     <link rel="stylesheet" href="/main.css">
@@ -238,8 +239,69 @@
 
     </div>
     
-    <footer>
-        <div class="pos-f-t">
+    <footer id="footer">
+                <div class="footerContent">
+                    <div class="BoxLista">
+                    
+                        <ul>
+                            <li class="boxtitle"><h5>HORARIOS de PISTA</h5></li>
+                            <li>Lunes: 17:00 - 23:00</li>
+                            <li>Martes: 17:00 - 23:00</li>
+                            <li>Miercoles: 17:00 - 23:00</li>
+                            <li>Jueves: 17:00 - 23:00</li>
+                            <li>Viernes: 17:00 - 23:00</li>
+                            <li>Sabado: 08:00 - 19:00</li>
+                            <li>Domingo: 08:00 - 19:00</li>
+                        
+                        </ul>
+
+                    
+                    </div>
+
+                    <div class="BoxLista">
+                        
+                        <ul>
+                            <li class="boxtitle"><h5>CONTACTO</h5></li>
+                            <li>Dirección: Passeig de la Circumval.lació, 1 08003 Barcelona</li>
+                            <li>Tel:  <a href="tel:+34 686 56 21 00"> +34 686 56 21 00</a></li>
+                           <li>Email: <a href="mailto:cemciutadella@cemciutadella.cat">cemciutadella@cemciutadella.cat</a></li>
+                        
+                        </ul>
+
+                        
+                    </div>
+
+                
+
+                    <div class="BoxLista BoxListaUbi">
+                        
+                        <ul>
+                            <li class="boxtitle"><h5>UBICACIÓN</h5></li>
+                            <div class="map-responsive">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3796.4048814659805!2d2.1843374514412557!3d41.38561497916251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a30220aac2ef%3A0xf6241494bbf180b5!2sCEM+Parc+de+la+Ciutadella!5e1!3m2!1ses!2ses!4v1529970568597" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            </div>        
+                        </ul>
+                    </div>
+
+                    <div class="BoxLista BoxListaSig">
+                    
+                        <ul>
+                            <li class="boxtitle"><h5>SÍGUENOS</h5></li>
+                            <li> Facebook</li>
+                            <li> Instagram</li>
+                        
+                        </ul>
+                    
+                    </div>
+                
+                </div>
+
+
+
+
+
+
+        <!-- <div class="pos-f-t">
             <div class="collapse" id="navbarToggleExternalContent">
                 <div class="bg-dark p-4">
                     <h5 class="text-white h4">Collapsed content</h5>
@@ -252,7 +314,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </nav>
-        </div>
+        </div> -->
     </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

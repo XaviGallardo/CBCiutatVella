@@ -82,32 +82,104 @@ if (isset($_POST['BtBuscaDNI'])){
  //print_r ($persona);
     $_SESSION["NumSocio"] = $persona->getID_Persona();
 ?>
-<form action="ModificarPersona.php" method="post">
-        <h3>Vas a modificar al socio número:<?php echo ($_SESSION["NumSocio"])?></h3>
-    <table border='2'>
-        <tr><td>Nombre: </td><td><input type="text" value="<?php echo ($persona->getNombre())?>" name="BtNombre_M" required> </td></tr>
-        <tr><td>DNI: </td><td><input type="text" value="<?php echo ($persona->getDNI())?>" name="BtDNI_M"required></td></tr>
-        <tr><td>Apellido1: </td><td><input type="text" value="<?php echo ($persona->getApellido1())?>" name="BtApellido1_M"required></td></tr>
-        <tr><td>Apellido2: </td><td><input type="text" value="<?php echo ($persona->getApellido2())?>" name="BtApellido2_M"required></td></tr>
-        <tr><td>Fecha de Nacimiento: </td><td><input type="date" value="<?php echo ($persona->getFecha_Nacimiento())?>" name="BtFecha_Nacimiento_M"required></td></tr>
-        <tr><td>Telefono: </td><td><input type="tel" value="<?php echo ($persona->getTelefono())?>" name="BtTelefono_M"required></td></tr>
-        <tr><td>eMail: </td><td><input type="email" value="<?php echo ($persona->geteMail())?>" name="BteMail_M"required></td></tr>
-        <tr><td>Direccion: </td><td><input type="text" value="<?php echo ($persona->getDireccion())?>" name="BtDireccion_M"required></td></tr>
-        <!-- <tr><td>Tipo: </td><td><input type="text" value="<?php echo ($persona->getTipo())?>" name="BtTipo_M"required></td></tr> -->
-        <tr><td>Tipo: </td><td><select name="BtTipo_M" id="BtTipo_M" required>
-        <option value=""><?php echo ($persona->getTipo())?></option>
-        <?php
-        foreach ($arrayOpciones as $opcion) 
-        {?>
-           <option value="<?php echo $opcion ?>"><?php echo $opcion ?></option>
-<?php   } ?> 
+<!-- <form action="ModificarPersona.php" method="post"> -->
+        
+        <div class="d-flex justify-content-center">
+    
+                    <div class="col-lg-7">
+                            <div class="card text-center">
+                                    <div class="card-header"> 
+                                        Vas a MODIFICAR los datos del socio número:<?php echo ($_SESSION["NumSocio"])?>
+                                    </div>    
+                                    <div class="card-body">
+                                        <form action="ModificarPersona.php" method="post">
 
-    </select></td></tr>
-        <tr><td>Categoria: </td><td><input type="text" value="<?php echo ($persona->getCategoria())?>" name="BtCategoria_M"required></td></tr>
-    </table>
-    <br>
-    <input type="submit" value="MODIFICA MIEMBRO" name="BtModifica">
-</form>
+                                            <div class="form-row">
+                                                <label for="inputDNI" class="col-md-4 col-form-label">DNI</label>
+                                                <div class="form-group col-md-4">
+                                                <input type="text" value="<?php echo ($persona->getDNI())?>" name="BtDNI_M" class="form-control text-center" id="inputDNI"  required>
+                                                </div>
+                                            </div>
+                                             <div class="form-row">   
+                                                <label for="inputNombre" class="col-md-4 col-form-label">Nombre</label>
+                                                <div class="form-group col-md-4">
+                                                    <input type="text" value="<?php echo ($persona->getNombre())?>" name="BtNombre_M" class="form-control text-center" id="inputNombre" required>
+                                                </div>
+                                            </div>    
+                                            <div class="form-row">
+                                                <label for="inputApellido" class="col-md-4 col-form-label">Apellidos</label>
+                                                <div class="form-group col-md-4">
+                                                    <input type="text" value="<?php echo ($persona->getApellido1())?>" name="BtApellido1_M"  class="form-control text-center" id="inputApellido"  required >
+                                                </div>
+                                                 
+                                                <div class="form-group col-md-4">
+                                                    <input type="text" value="<?php echo ($persona->getApellido2())?>" name="BtApellido2_M"  class="form-control text-center" id="inputApellido"  required >
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <label for="inputTelefono" class="col-md-4 col-form-label">Telefono</label>
+                                                <div class="form-group col-md-3">
+                                                    <input type="tel" value="<?php echo ($persona->getTelefono())?>" name="BtTelefono_M" required class="form-control text-center" id="inputTelefono" required  >
+                                                </div>
+                                                <label for="nputFechaNacimiento" class="col-md-2 col-form-label">Birthdate</label>
+                                                <div class="form-group col-md-3">
+                                                    <input type="date" value="<?php echo ($persona->getFecha_Nacimiento())?>" name="BtFecha_Nacimiento_M" class="form-control text-center" id="inputFechaNacimiento"  required>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <label for="inputeMail" class="col-md-4 col-form-label">email</label>
+                                                <div class="form-group col-md-8">
+                                                    <input type="email" value="<?php echo ($persona->geteMail())?>" name="BteMail_M"  class="form-control text-center" id="inputeMail" required >
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <label for="inputDireccion" class="col-md-4 col-form-label">Direccion</label>
+                                                <div class="form-group col-md-8">
+                                                    <input type="text" value="<?php echo ($persona->getDireccion())?>" name="BtDireccion_M"  class="form-control text-center" id="inputDireccion" required >
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <label for="inputTipo" class="col-md-4 col-form-label">Tipo</label>
+                                                <div class="form-group col-md-3">
+                                                    <select class="custom-select mr-sm-2" name="BtTipo_M" required id="inlineFormTipoSelect">
+                                                        <option selected><?php echo ($persona->getTipo())?></option>
+                                                        <?php
+                                                        foreach ($arrayOpciones as $opcion) 
+                                                        {?>
+                                                            <option value="<?php echo $opcion ?>"><?php echo $opcion ?></option>
+                                                <?php   } ?>
+                                                    </select>
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                    <!-- <input type="text" value="<?php echo ($persona->getTipo())?>" name="BtTipo_M"  class="form-control text-center" id="inputTipo" required > -->
+                                                </div>
+                                                <label for="inputCategoria" class="col-md-2 col-form-label">Categoria</label>
+                                                <div class="form-group col-md-3">
+                                                    <input type="text" value="<?php echo ($persona->getCategoria())?>" name="BtCategoria_M" class="form-control text-center" id="inputCategoria" required >
+                                                </div>
+                                            </div>
+                   
+                                            <p class="card-text">Procederas a ACTUALIZAR los datos del socio.</p>
+                                            <h5 class="card-title">GRACIAS</h5>
+
+                                            <input type="submit" value="ACTUALIZAR DATOS SOCIO" name="BtModifica" class="btn btn-danger">
+                                        </form>
+                                    </div>
+
+                                    <div class="card-footer text-muted">
+                                        © CBCV
+                                    </div>
+                            </div>
+                        </div>
+                </div>
+
+
+
+
 
 <?php
 }
