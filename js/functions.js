@@ -37,15 +37,91 @@ function pasarvariable2() {
     location.href = "EliminarPersona.php?BuscaDNI=&BtMuestraSocios=SOCIOS";
 }
 
+var prueba = document.getElementById("Socio");
+
+if (prueba === null) {
+    document.getElementById("Encontrado").className += " NoEncontrado";
+}
+
+//  -------------->>>>>>>    MEDIA QUERY
+
+console.log(document.getElementById("BoxBuscaContent").className);
+    function myFunction(x) {
+    if (x.matches) { // If media query matches
+        document.getElementById("BoxBuscaContent").className += " text-center";
+        // document.getElementById("BoxBuscaContent").toggleClass("text-center");
+        // console.log("jQuery", $('#BoxBuscaContent'));
+        console.log(document.getElementById("BoxBuscaContent").className);
+    } else {
+        // document.getElementById("BoxBuscaContent").className -= " text-center";
+        // document.getElementById("BoxBuscaContent").toggleClass("text-center");
+        console.log("jQuery", $('#BoxBuscaContent'));
+        $('#BoxBuscaContent').removeClass("text-center");
+
+        console.log(document.getElementById("BoxBuscaContent").className);
+    }
+    }
+
+    var x = window.matchMedia("(max-width: 1200px)")
+    myFunction(x) // Call listener function at run time
+    x.addListener(myFunction) // Attach listener function on state changes
+
+
+//  -------------->>>>>>>    MEDIA QUERY
+
+
+
+
+
+
+// ----- PRUEBAS NO FRUCTIFERAS !!!------
+
+
+
+// if (($('prueba').find('card-header'))){
+//     document.getElementById("Encontrado").className += " NoEncontrado";
+
+// }
+// console.log(prueba);
+
+// console.log(($('prueba').find('#Socio')));
+
+// console.log($('prueba:first-child'));
+// if (($('prueba:first-child')).is(':empty')) {
+//     document.getElementById("Encontrado").className += " NoEncontrado";
+// }
+// if ((prueba.length) === 0) {
+//   document.getElementById("Encontrado").className += " NoEncontrado";
+//  }
+// console.log(($('prueba')));
+// console.log(($('prueba').length));
+
 // BuscaDNI =& BtMuestraSocios=SOCIOS
 
-var boton2 = $('.BtSocios');
-console.log(boton2);
+// var boton2 = $('.BtSocios');
+// console.log(boton2);
 
-boton2.click(function (e) {
-    // document.getElementById("Encontrado").className += "NoEncontrado";
-     e.preventDefault();
-    document.getElementById("Encontrado").className += " NoEncontrado";
-    console.log(document.getElementById("Encontrado"));
-    pasarvariable2();
-});
+// boton2.click(function (e) {
+//     // document.getElementById("Encontrado").className += "NoEncontrado";
+//      e.preventDefault();
+//     document.getElementById("Encontrado").className += " NoEncontrado";
+//     console.log(document.getElementById("Encontrado"));
+//     pasarvariable2();
+// });
+
+// function isEmpty(el) {
+//     return !$.trim(el.html())
+// }
+
+// var prueba = document.getElementById("Encontrado");
+// console.log(prueba);
+
+// if (isEmpty($('prueba:first-child'))) {
+//     console.log((isEmpty($('prueba:first-child'))));
+//     document.getElementById("Encontrado").className += " NoEncontrado";
+// }
+
+
+// if (document.getElementById("Encontrado").empty()){
+//     document.getElementById("Encontrado").className += " NoEncontrado";
+// }

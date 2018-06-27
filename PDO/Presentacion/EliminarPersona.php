@@ -12,13 +12,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Club Basquet Ciutat Vella Barcelona</title>
+    <link rel="stylesheet" href="/CBCV/CBCiutatVella/style/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
     <link rel="stylesheet" href="/CBCV/CBCiutatVella/style/EliminarPersona.css">
     <link rel="icon" type="image/png" href="/CBCV/CBCiutatVella/public/favicon.png" />
 </head>
 
-<body>
+<body id="Fondo">
 <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-warning">
             <a class="navbar-brand text-primary" href="/CBCV/CBCiutatVella"><img src="/CBCV/CBCiutatVella/public/logo-cbcv.jpg" width="80" height="90"  alt="logo CBCiutatVella">    CB Ciutat Vella</a>
@@ -192,28 +193,32 @@
     
     <div id="Fondo" class="BoxBusca">
 
-        <div class="BoxBuscaContent">
-
-            <h1>SECCIÓN DE BAJAS DEL CLUB</h1>
-
-                <!-- <h1>Aquí también implemetar la busqueda por el primer apellido u otros campos</h1> -->
-
-            <h2>Busca el socio que quieres ELIMINAR introduciendo su DNI.</h2>
-
+        <div id="BoxBuscaContent"class="BoxBuscaContent">
             <div>
-                    <form  class="form-inline" action="EliminarPersona.php" method="get" id="BtBuscaDNI">
-                        <div class="form-group">
+                <h1 class='titulo'>SECCIÓN DE BAJAS DEL CLUB</h1>
+            </div>        
+                <!-- <h1>Aquí también implemetar la busqueda por el primer apellido u otros campos</h1> -->
+            <div>    
+                <h2 class='titulo2'>Busca el socio que quieres ELIMINAR introduciendo su DNI.</h2>
+            </div>        
+            <div>
+                    <form   action="EliminarPersona.php" method="get" id="BtBuscaDNI">
+                        <div id="formDNI" class="form-group">
                             <label for="BuscaDNI"> Introduce el DNI de la persona: </label>
-                            <input type="text" value="" name="BuscaDNI" id="BuscaDNI" placeholder="00000000X" class="form-control mx-sm-3" aria-describedby="DNIHelpInline" size="9">
+                            <input type="text" value="" name="BuscaDNI" id="BuscaDNI" placeholder="00000000X" class="form-control sm-3 text-center col-lg-8" aria-describedby="DNIHelpInline" size="9">
                             <!-- <small id="DNIHelpInline" class="text-muted">
                                 8 Números + 1 Letra: 00000000X .
                             </small> -->
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <input type="submit" value="Busca DNI" name="BtBuscaDNI" id="BtBuscaDNI" class="btn btn-primary my-1">
-                        <input type="submit" value="SOCIOS" name="BtMuestraSocios" id="BtSocios"class="btn btn-primary my-1 BtSocios">
-                    </div>   
+                        </div>
+                    
+                        <div class="form-group">
+                            <input type="submit" value="Busca DNI" name="BtBuscaDNI" id="BtBuscaDNI" class="btn btn-primary my-1">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="BtMuestraSocios"> Si no conoces el DNI, aprieta en SOCIOS: </label>
+                            <input type="submit" value="SOCIOS" name="BtMuestraSocios" id="BtSocios"class="btn btn-primary my-1 BtSocios">
+                        </div>   
                     </form>
             </div>
 
@@ -232,14 +237,18 @@
             $persona = $objPersona -> buscarPorDNI($_GET['BuscaDNI']);
 
             if ($persona){
+                // echo ($persona->getID_Persona());
                 // print_r ($persona);
+                // <script>
+                
+                // </script>
                 $_SESSION["NumSocio"] = $persona->getID_Persona();
         ?>
                 <div class="d-flex justify-content-center">
     
                     <div class="col-lg-7">
                             <div class="card text-center">
-                                    <div class="card-header"> 
+                                    <div id='Socio' class="card-header"> 
                                         Vas a Eliminar al socio número:<?php echo ($_SESSION["NumSocio"])?>
                                     </div>    
                                     <div class="card-body">
@@ -366,7 +375,7 @@
 
                      <!-- <div class="d-flex justify-content-center"> -->
     
-                    <div class="col-xl-3 col-lg-6 col-md-6 ">
+                    <div class="col-xl-4 col-lg-6 col-md-6 ">
                             <div class="card text-center " style="margin-bottom: 50px;" >
                                     <div class="card-header"> 
                                         SOCIO #   <?php echo ($objPersona->getID_Persona())?>
@@ -450,14 +459,14 @@ if (isset($_GET['BtElimina'])) {
 
 ?>
                         <!-- BOTONES ACCESO DIRECTO -->
-                   <div class="d-flex justify-content-center">
+                   <!-- <div class="d-flex justify-content-center">
                         <div class="btn-group" role="group" aria-label="Basic example">
                         <a   href="/CBCV/CBCiutatVella/PDO/Presentacion/InsertarPersona.php" class="btn btn-secondary">Añadir </a>
                         <a   href="/CBCV/CBCiutatVella/PDO/Presentacion/ModificarPersona.php" class="btn btn-secondary">Modificar</a>
                         <a   href="/CBCV/CBCiutatVella/PDO/Presentacion/EliminarPersona.php" class="btn btn-secondary">Eliminar</a>
                         
                         </div>
-                    </div>
+                    </div> -->
                     
                     
      <!-- </div> Es el cierre del DIV del TODO  -->

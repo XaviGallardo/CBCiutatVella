@@ -1,4 +1,9 @@
+body{
+    height: 100vh;
+}
 #Fondo{
+    height: 100vh;
+
     background: burlywood;
     
     /* Ubicación de la imagen */
@@ -144,7 +149,37 @@ li {
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
+.titulo{
+    font-size: 1rem;
+}
+.titulo2{
+    font-size: 0.75rem;
+}
+.BoxBuscaContent{
 
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20%;
+    margin-top: 20px;
+    height: 5%;
+    /* padding-left: 22%; */
+    width: 95%;
+    /* padding-top: 2%; */
+    grid-template-rows: 1fr 2fr 3fr;
+    /* grid-auto-rows: 35%; */
+    /* margin-left: 25px; */
+    padding: 0 20%;
+}
+.card-deck{
+    margin-top: 250px;
+}
+
+#buscaDNI{
+    margin: 0 auto;
+}
+
+
+    /*  ---- REVISAR SI ESTO AQUI ABAJO EN ESTE BP NOS ESTA AFECTANDO  */
 .BoxLista{
     background: #FAC329;
     padding: 10px;
@@ -196,20 +231,32 @@ li {
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-
+.titulo{
+    font-size: 1.5rem;
+}
+.titulo2{
+    font-size: 1.25rem;
+}
 .BoxBuscaContent{
-  
 
     display: grid;
     grid-template-columns: 1fr;
-    grid-gap: 20px;
+    grid-gap: 20%;
     margin-top: 20px;
-    height: 25%;
+    height: 5%;
     padding-left: 22%;
-    width: 130%;
+    width: 95%;
     padding-top: 2%;
+    grid-template-rows: 1fr 2fr 3fr;
+    grid-auto-rows: 35%;
+    margin-left: 25px;
 }
 
+.card-deck{
+    margin-top: 5px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
 .BoxBusca{
     display: grid;
     grid-template-columns: 1fr 3fr;
