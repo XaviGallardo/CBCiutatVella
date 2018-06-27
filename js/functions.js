@@ -37,15 +37,60 @@ function pasarvariable2() {
     location.href = "EliminarPersona.php?BuscaDNI=&BtMuestraSocios=SOCIOS";
 }
 
+var prueba = document.getElementById("Socio");
+
+if (prueba === null) {
+    document.getElementById("Encontrado").className += " NoEncontrado";
+}
+
+// ----- PRUEBAS NO FRUCTIFERAS !!!------
+
+
+
+// if (($('prueba').find('card-header'))){
+//     document.getElementById("Encontrado").className += " NoEncontrado";
+
+// }
+// console.log(prueba);
+
+// console.log(($('prueba').find('#Socio')));
+
+// console.log($('prueba:first-child'));
+// if (($('prueba:first-child')).is(':empty')) {
+//     document.getElementById("Encontrado").className += " NoEncontrado";
+// }
+// if ((prueba.length) === 0) {
+//   document.getElementById("Encontrado").className += " NoEncontrado";
+//  }
+// console.log(($('prueba')));
+// console.log(($('prueba').length));
+
 // BuscaDNI =& BtMuestraSocios=SOCIOS
 
-var boton2 = $('.BtSocios');
-console.log(boton2);
+// var boton2 = $('.BtSocios');
+// console.log(boton2);
 
-boton2.click(function (e) {
-    // document.getElementById("Encontrado").className += "NoEncontrado";
-     e.preventDefault();
-    document.getElementById("Encontrado").className += " NoEncontrado";
-    console.log(document.getElementById("Encontrado"));
-    pasarvariable2();
-});
+// boton2.click(function (e) {
+//     // document.getElementById("Encontrado").className += "NoEncontrado";
+//      e.preventDefault();
+//     document.getElementById("Encontrado").className += " NoEncontrado";
+//     console.log(document.getElementById("Encontrado"));
+//     pasarvariable2();
+// });
+
+// function isEmpty(el) {
+//     return !$.trim(el.html())
+// }
+
+// var prueba = document.getElementById("Encontrado");
+// console.log(prueba);
+
+// if (isEmpty($('prueba:first-child'))) {
+//     console.log((isEmpty($('prueba:first-child'))));
+//     document.getElementById("Encontrado").className += " NoEncontrado";
+// }
+
+
+// if (document.getElementById("Encontrado").empty()){
+//     document.getElementById("Encontrado").className += " NoEncontrado";
+// }

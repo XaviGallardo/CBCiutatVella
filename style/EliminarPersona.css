@@ -1,4 +1,9 @@
+body{
+    height: 100vh;
+}
 #Fondo{
+    height: 100vh;
+
     background: burlywood;
     
     /* Ubicación de la imagen */
@@ -204,10 +209,12 @@ li {
     grid-template-columns: 1fr;
     grid-gap: 20px;
     margin-top: 20px;
-    height: 25%;
+    height: 5%;
     padding-left: 22%;
-    width: 130%;
+    width: 95%;
     padding-top: 2%;
+    grid-template-rows: 35%;
+    grid-auto-rows:35%;
 }
 
 .BoxBusca{
