@@ -33,8 +33,8 @@
     <input type="submit" value="INSERTAR" name="BtInsertar">
 </form>
 
-<a  href="ModificarPersona.php">Modificar Socio</a>
-<a  href="EliminarPersona.php">Eliminar Socio</a>
+<a  href="ModificarEquipo2.php">Modificar Equipo</a>
+<a  href="EliminarEquipo.php">Eliminar Equipo</a>
 
 <?php
 

@@ -39,6 +39,9 @@ function pasarvariable2() {
 
 var prueba = document.getElementById("Socio");
 
+console.log("prueba NO ENCONTRADO");
+console.log(prueba);
+
 if (prueba === null) {
     document.getElementById("Encontrado").className += " NoEncontrado";
 }

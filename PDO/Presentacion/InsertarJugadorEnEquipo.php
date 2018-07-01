@@ -35,7 +35,7 @@ $arrayJugadores = $objJugador -> ListarPorTipo($Tipo);
         <?php
         foreach ($arrayJugadores as $Jugador) 
         {?>
-           <option value="<?php echo $Jugador->getNombre() ?>"><?php echo $Jugador->getNombre() ." ". $Jugador->getApellido1() ." ". $Jugador->getApellido2()  ?></option>
+           <option value="<?php echo $Jugador->getID_Persona() ?>"><?php echo $Jugador->getNombre() ." ". $Jugador->getApellido1() ." ". $Jugador->getApellido2()  ?></option>
 <?php   } ?> 
 
     </select>
@@ -59,7 +59,7 @@ $arrayJugadores = $objJugador -> ListarPorTipo($Tipo);
 
 if (isset($_POST['BtJugador2'])){
 
-    $objEquipoJugador = new EquipoJugador($_SESSION['EquipoAñadeJugador'],$Jugador->getID_Persona() ,$_POST['BtDorsal']);
+    $objEquipoJugador = new EquipoJugador($_SESSION['EquipoAñadeJugador'],$_POST['BtJugador'] ,$_POST['BtDorsal']);
 
     // print_r($objEquipoJugador);
     

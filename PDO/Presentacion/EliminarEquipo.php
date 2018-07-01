@@ -14,6 +14,80 @@
 
 <!-- <h1>Aquí también implemetar la busqueda por el primer apellido u otros campos</h1> -->
 
+<?php
+
+
+$objEquipo = new Equipo();
+
+$arrayEquipos = $objEquipo -> Listar();
+
+
+?>
+
+<h2>Selecciona el equipo que quieres modificar.</h2>
+
+<form action="EliminarEquipo.php" method="post">
+    
+    <select name="BtEquipo" id="BtEquipo" required>
+        <option value="">Selecciona un Equipo</option>
+        <?php
+        foreach ($arrayEquipos as $Equipo) 
+        {?>
+           <option value="<?php echo $Equipo->getNombre() ?>"><?php echo $Equipo->getNombre() ." ". $Equipo->getGenero() ." ". $Equipo->getCategoria()  ?></option>
+<?php   } ?> 
+
+    </select>
+<br>
+
+<br>
+    <input type="submit" value="Seleccionar Equipo" name="BtEquipo2">
+    
+</form>
+
+<?php
+if (isset($_POST['BtEquipo2'])){
+
+$objEquipo2 = new Equipo();
+$EquipoMod = $objEquipo2->buscarPorNombre($_POST['BtEquipo']);
+
+if ($EquipoMod){
+    // print_r ($equipo);
+    $_SESSION["NumEquipo"] = $EquipoMod->getID_Equipo();
+    }   
+
+ 
+
+?>
+
+       
+    <table border='2'>
+        <tr><td>Nombre: </td><td><input type="text" value="<?php echo ($EquipoMod->getNombre())?>" name="BtNombre_M" required> </td></tr>
+        <tr><td>Genero: </td><td><select name="BtGenero_M" id="BtGenero_M" required>
+                                        <option value=""><?php echo ($EquipoMod->getGenero())?></option>
+        <?php
+                                        foreach ($arrayOpciones as $opcion) 
+        {?>
+                                        <option value="<?php echo $opcion ?>"><?php echo $opcion ?></option>
+        <?php   } ?> 
+
+        </select></td></tr>
+    
+        <tr><td>Categoria: </td><td><input type="text" value="<?php echo ($EquipoMod->getCategoria())?>" name="BtCategoria_M"required></td></tr>
+    </table>
+    <br>
+   
+
+
+<?php
+}
+?>
+
+   
+
+
+
+
+
 <h2>Busca el equipo que quieres ELIMINAR .</h2>
 
 <form action="EliminarEquipo.php" method="post">

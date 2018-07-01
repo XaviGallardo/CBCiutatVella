@@ -1,6 +1,10 @@
 <?php
     require "../Negocio/Persona.php";
-
+    $arrayOpciones[0]= 'Jugador';
+    $arrayOpciones[1]= 'Entrenador';
+    $arrayOpciones[2]= 'Entren/Jugador';
+    $arrayOpciones[3]= 'Otro';
+    
     session_start();
     if (!isset($_SESSION['Role'])){
     $_SESSION['Role'] = '0';
@@ -195,14 +199,14 @@
 
         <div id="BoxBuscaContent"class="BoxBuscaContent">
             <div>
-                <h1 class='titulo'>SECCIÓN DE BAJAS DEL CLUB</h1>
+                <h1 class='titulo'>ACTUALIZACIÓN DATOS DE SOCIOS</h1>
             </div>        
                 <!-- <h1>Aquí también implemetar la busqueda por el primer apellido u otros campos</h1> -->
             <div>    
-                <h2 class='titulo2'>Busca el socio que quieres ELIMINAR introduciendo su DNI.</h2>
+                <h2 class='titulo2'>Busca el socio que quieres MODIFICAR introduciendo su DNI.</h2>
             </div>        
             <div>
-                    <form   action="EliminarPersona.php" method="get" id="BtBuscaDNI">
+                    <form   action="ModificarPersona2.php" method="get" id="BtBuscaDNI">
                         <div id="formDNI" class="form-group">
                             <label for="BuscaDNI"> Introduce el DNI de la persona: </label>
                             <input type="text" value="" name="BuscaDNI" id="BuscaDNI" placeholder="00000000X" class="form-control sm-3 text-center col-lg-8" aria-describedby="DNIHelpInline" size="9">
@@ -244,84 +248,98 @@
                 // </script>
                 $_SESSION["NumSocio"] = $persona->getID_Persona();
         ?>
-                <div class="d-flex justify-content-center">
+                 <div class="d-flex justify-content-center">
     
-                    <div class="col-lg-7">
-                            <div class="card text-center">
-                                    <div id='Socio' class="card-header"> 
-                                        Vas a Eliminar al socio número:<?php echo ($_SESSION["NumSocio"])?>
-                                    </div>    
-                                    <div class="card-body">
-                                        <form action="EliminarPersona.php" method="post">
+    <div class="col-lg-7">
+            <div class="card text-center">
+                    <div id='Socio' class="card-header"> 
+                        Vas a MODIFICAR los datos del socio número:<?php echo ($_SESSION["NumSocio"])?>
+                    </div>    
+                    <div class="card-body">
+                        <form action="ModificarPersona2.php" method="post">
 
-                                            <div class="form-row">
-                                                <label for="inputDNI" class="col-md-4 col-form-label">DNI</label>
-                                                <div class="form-group col-md-4">
-                                                <input type="text" value="<?php echo ($persona->getDNI())?>" name="BtDNI_E" class="form-control text-center" id="inputDNI" readonly>
-                                                </div>
-                                            </div>
-                                             <div class="form-row">   
-                                                <label for="inputNombre" class="col-md-4 col-form-label">Nombre</label>
-                                                <div class="form-group col-md-4">
-                                                    <input type="text" value="<?php echo ($persona->getNombre())?>" name="BtNombre_E" class="form-control text-center" id="inputNombre"readonly>
-                                                </div>
-                                            </div>    
-                                            <div class="form-row">
-                                                <label for="inputApellido" class="col-md-4 col-form-label">Apellidos</label>
-                                                <div class="form-group col-md-4">
-                                                    <input type="text" value="<?php echo ($persona->getApellido1())?>" name="BtApellido1_E"  class="form-control text-center" id="inputApellido"  readonly>
-                                                </div>
-                                                 
-                                                <div class="form-group col-md-4">
-                                                    <input type="text" value="<?php echo ($persona->getApellido2())?>" name="BtApellido2_E"  class="form-control text-center" id="inputApellido"  readonly>
-                                                </div>
-                                            </div>
-                                            <div class="form-row">
-                                                <label for="inputTelefono" class="col-md-4 col-form-label">Telefono</label>
-                                                <div class="form-group col-md-3">
-                                                    <input type="tel" value="<?php echo ($persona->getTelefono())?>" name="BtTelefono_E" required class="form-control text-center" id="inputTelefono" readonly>
-                                                </div>
-                                                <label for="nputFechaNacimiento" class="col-md-2 col-form-label">Birthdate</label>
-                                                <div class="form-group col-md-3">
-                                                    <input type="date" value="<?php echo ($persona->getFecha_Nacimiento())?>" name="BtFecha_Nacimiento_E" class="form-control text-center" id="inputFechaNacimiento" readonly>
-                                                </div>
-                                            </div>
-                                            <div class="form-row">
-                                                <label for="inputeMail" class="col-md-4 col-form-label">email</label>
-                                                <div class="form-group col-md-8">
-                                                    <input type="email" value="<?php echo ($persona->geteMail())?>" name="BteMail_E"  class="form-control text-center" id="inputeMail" readonly>
-                                                </div>
-                                            </div>
-                                            <div class="form-row">
-                                                <label for="inputDireccion" class="col-md-4 col-form-label">Direccion</label>
-                                                <div class="form-group col-md-8">
-                                                    <input type="text" value="<?php echo ($persona->getDireccion())?>" name="BtDireccion_E"  class="form-control text-center" id="inputDireccion" readonly>
-                                                </div>
-                                            </div>
-                                            <div class="form-row">
-                                                <label for="inputTipo" class="col-md-4 col-form-label">Tipo</label>
-                                                <div class="form-group col-md-3">
-                                                    <input type="text" value="<?php echo ($persona->getTipo())?>" name="BtTipo_E"  class="form-control text-center" id="inputTipo" readonly>
-                                                </div>
-                                                <label for="inputCategoria" class="col-md-2 col-form-label">Categoria</label>
-                                                <div class="form-group col-md-3">
-                                                    <input type="text" value="<?php echo ($persona->getCategoria())?>" name="BtCategoria_E" class="form-control text-center" id="inputCategoria" readonly>
-                                                </div>
-                                            </div>
-                   
-                                            <p class="card-text">Procederas a eliminar por completo los datos del socio.</p>
-                                            <h5 class="card-title">GRACIAS</h5>
-
-                                            <input type="submit" value="ELIMINAR SOCIO" name="BtElimina" class="btn btn-danger">
-                                        </form>
-                                    </div>
-
-                                    <div class="card-footer text-muted">
-                                        © CBCV
-                                    </div>
+                            <div class="form-row">
+                                <label for="inputDNI" class="col-md-4 col-form-label">DNI</label>
+                                <div class="form-group col-md-4">
+                                <input type="text" value="<?php echo ($persona->getDNI())?>" name="BtDNI_M" class="form-control text-center" id="inputDNI"  required>
+                                </div>
                             </div>
-                        </div>
-                </div>
+                             <div class="form-row">   
+                                <label for="inputNombre" class="col-md-4 col-form-label">Nombre</label>
+                                <div class="form-group col-md-4">
+                                    <input type="text" value="<?php echo ($persona->getNombre())?>" name="BtNombre_M" class="form-control text-center" id="inputNombre" required>
+                                </div>
+                            </div>    
+                            <div class="form-row">
+                                <label for="inputApellido" class="col-md-4 col-form-label">Apellidos</label>
+                                <div class="form-group col-md-4">
+                                    <input type="text" value="<?php echo ($persona->getApellido1())?>" name="BtApellido1_M"  class="form-control text-center" id="inputApellido"  required >
+                                </div>
+                                 
+                                <div class="form-group col-md-4">
+                                    <input type="text" value="<?php echo ($persona->getApellido2())?>" name="BtApellido2_M"  class="form-control text-center" id="inputApellido"  required >
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <label for="inputTelefono" class="col-md-4 col-form-label">Telefono</label>
+                                <div class="form-group col-md-3">
+                                    <input type="tel" value="<?php echo ($persona->getTelefono())?>" name="BtTelefono_M" required class="form-control text-center" id="inputTelefono" required  >
+                                </div>
+                                <label for="nputFechaNacimiento" class="col-md-2 col-form-label">Birthdate</label>
+                                <div class="form-group col-md-3">
+                                    <input type="date" value="<?php echo ($persona->getFecha_Nacimiento())?>" name="BtFecha_Nacimiento_M" class="form-control text-center" id="inputFechaNacimiento"  required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <label for="inputeMail" class="col-md-4 col-form-label">email</label>
+                                <div class="form-group col-md-8">
+                                    <input type="email" value="<?php echo ($persona->geteMail())?>" name="BteMail_M"  class="form-control text-center" id="inputeMail" required >
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <label for="inputDireccion" class="col-md-4 col-form-label">Direccion</label>
+                                <div class="form-group col-md-8">
+                                    <input type="text" value="<?php echo ($persona->getDireccion())?>" name="BtDireccion_M"  class="form-control text-center" id="inputDireccion" required >
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <label for="inputTipo" class="col-md-4 col-form-label">Tipo</label>
+                                <div class="form-group col-md-3">
+                                    <select class="custom-select mr-sm-2" name="BtTipo_M" required id="inlineFormTipoSelect">
+                                        <option selected><?php echo ($persona->getTipo())?></option>
+                                        <?php
+                                        foreach ($arrayOpciones as $opcion) 
+                                        {?>
+                                            <option value="<?php echo $opcion ?>"><?php echo $opcion ?></option>
+                                <?php   } ?>
+                                    </select>
+                                
+                                
+                                
+                                
+                                
+                                
+                                    <!-- <input type="text" value="<?php echo ($persona->getTipo())?>" name="BtTipo_M"  class="form-control text-center" id="inputTipo" required > -->
+                                </div>
+                                <label for="inputCategoria" class="col-md-2 col-form-label">Categoria</label>
+                                <div class="form-group col-md-3">
+                                    <input type="text" value="<?php echo ($persona->getCategoria())?>" name="BtCategoria_M" class="form-control text-center" id="inputCategoria" required >
+                                </div>
+                            </div>
+   
+                            <p class="card-text">Procederas a ACTUALIZAR los datos del socio.</p>
+                            <h5 class="card-title">GRACIAS</h5>
+
+                            <input type="submit" value="ACTUALIZAR DATOS SOCIO" name="BtModifica" class="btn btn-danger">
+                        </form>
+                    </div>
+
+                    <div class="card-footer text-muted">
+                        © CBCV
+                    </div>
+            </div>
+        </div>
+</div>
 
 
 
@@ -381,7 +399,7 @@
                                         SOCIO #   <?php echo ($objPersona->getID_Persona())?>
                                     </div>    
                                     <div class="card-body">
-                                        <form action="EliminarPersona.php" method="get">
+                                        <form action="ModificarPersona2.php" method="get">
 
                                             <div class="form-row">
                                                 <label for="inputDNI" class="col-sm-4 col-form-label">DNI</label>
@@ -408,7 +426,7 @@
                                                 </div>
                                             </div>
 
-                                            <p class="card-text">Si Quieres eliminar al socio, verifica antes todos sus datos.</p>
+                                            <p class="card-text">Accede a toda la info.</p>
                                            <!-- <h5 class="card-title">La acción de eliminar no es reversible.</h5> -->
                                             
                                             <input type="submit" form="FormBuscaDNI" value="VERIFICAR" name="BtEnviaEliminar" class="btn btn-warning EnviarEliminar">
@@ -445,20 +463,20 @@
 
 // Para cambiar el formato de la fecha de: 29/12/1981 a: 1981/12/29  osea de d/m/a a: yyyy/m/d
 // implode('/',array_reverse(explode('/',$_POST['BtFecha_Nacimiento'])));
-if (isset($_POST['BtElimina'])) {
-//    print ($_POST['BtDNI_M']);
-    $error="";   
-       
-   $objPersona2 = new Persona($_SESSION["NumSocio"], $_POST['BtDNI_E'], $_POST['BtNombre_E'], $_POST['BtApellido1_E'],$_POST['BtApellido2_E'],implode('/',array_reverse(explode('/',$_POST['BtFecha_Nacimiento_E']))),$_POST['BtTelefono_E'],$_POST['BteMail_E'],$_POST['BtDireccion_E'],$_POST['BtTipo_E'],$_POST['BtCategoria_E']);
-   //print_r($objPersona2);
-   $resultado2 = $objPersona2 -> Eliminar();
-
-   // Motrar el resultado de los registro de la base de datos
-    if ($resultado2)
-        echo "Has eliminado todos los datos por completo de ese SOCIO";
-    else
-        echo "Error en la Eliminación";   
-}
+if (isset($_POST['BtModifica'])) {
+    //    print ($_POST['BtDNI_M']);
+        $error="";   
+           
+       $objPersona2 = new Persona($_SESSION["NumSocio"], $_POST['BtDNI_M'], $_POST['BtNombre_M'], $_POST['BtApellido1_M'],$_POST['BtApellido2_M'],implode('/',array_reverse(explode('/',$_POST['BtFecha_Nacimiento_M']))),$_POST['BtTelefono_M'],$_POST['BteMail_M'],$_POST['BtDireccion_M'],$_POST['BtTipo_M'],$_POST['BtCategoria_M']);
+       //print_r($objPersona2);
+       $resultado2 = $objPersona2 -> Modificar();
+    
+       // Motrar el resultado de los registro de la base de datos
+        if ($resultado2)
+            echo "Registro Modificado";
+        else
+            echo "Error en la Modificación";   
+    }
 
 ?>
                         <!-- BOTONES ACCESO DIRECTO -->
@@ -592,7 +610,7 @@ if (isset($_POST['BtElimina'])) {
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script> 
-    <script src="/CBCV/CBCiutatVella/js/functions.js"> </script>
+    <script src="/CBCV/CBCiutatVella/js/functions2.js"> </script>
     
 </body>
 </html>

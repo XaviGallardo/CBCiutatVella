@@ -114,9 +114,9 @@
                                 Equipos
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="/CBCV/CBCiutatVella/PDO/Presentacion/InsertarEquipo.php">Añadir</a>
-                                    <a class="dropdown-item" href="/CBCV/CBCiutatVella/PDO/Presentacion/ModificarEquipo2.php">Modificar</a>
-                                    <a class="dropdown-item" href="/CBCV/CBCiutatVella/PDO/Presentacion/EliminarEquipo.php">Eliminar</a>
+                                    <a class="dropdown-item" href="#">Añadir</a>
+                                    <a class="dropdown-item" href="#">Modificar</a>
+                                    <a class="dropdown-item" href="#">Eliminar</a>
                                 </div>
                             </li>
                             </ul>
@@ -225,31 +225,53 @@
 
     
 
-
 <div id="Fondo" class="d-flex justify-content-center">
-    
+
+    <?php
+   // echo ($_SESSION['DNI']);
+        if ($_SESSION['DNI'] != '-'){
+         $objPersona = new Persona();
+         $persona = $objPersona -> buscarPorDNI($_SESSION['DNI']);
+
+    ?>
+
     <div class="col-xs-7 col-sm-10 col-md-7 col-lg-5">
             <div class="card text-center">
                     <div class="card-header">
-                        NUEVO SOCIO
+                        NUEVO SOCIO NUMERO <?php echo ($persona->getID_Persona())?>
                     </div>
                     <div class="card-body">
-                        <form action="InsertarPersona.php" method="post">
-                            
-                                <div class="form-group ">
-                                    <input type="text" name="BtDNI" required class="form-control" id="inputDNI" placeholder="DNI">
+                        
+
+                            <div class="form-row">
+                                <label for="inputID_Persona" class="col-md-4 col-form-label">Numero de SOCIO</label>
+                                <div class="form-group col-md-4 ">
+                                    <input type="text" value="<?php echo ($persona->getID_Persona())?>" name="BtID_Persona" required class="form-control  text-center" id="inputID_Persona" readonly>
                                 </div>
-                                <div class="form-group ">
-                                    <input type="text" name="BtNombre" required class="form-control" id="inputNombre" placeholder="Nombre">
+                            </div>
+                            <div class="form-row">
+                                <label for="inputDNI" class="col-md-4 col-form-label">DNI</label>
+                                <div class="form-group col-md-4 ">
+                                    <input type="text" value="<?php echo ($persona->getDNI())?>" name="BtDNI" required class="form-control  text-center" id="inputDNI"readonly>
                                 </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <input type="text" name="BtApellido1" required class="form-control" id="inputApellido1" placeholder="Apellido1">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <input type="text" name="BtApellido2" required class="form-control" id="inputApellido2" placeholder="Apellido2">
-                                    </div>
+                            </div>
+                            <div class="form-row">
+                                <label for="inputNombre" class="col-md-4 col-form-label">Nombre</label>
+                                <div class="form-group col-md-4 ">
+                                    <input type="text" value="<?php echo ($persona->getNombre())?>" name="BtNombre" required class="form-control  text-center" id="inputNombre"readonly>
                                 </div>
+                            </div>
+                            <div class="form-row">
+                                <label for="inputApellido" class="col-md-4 col-form-label">Apellidos</label>
+                                <div class="form-group col-md-4">
+                                <input type="text" value="<?php echo ($persona->getApellido1())?>" name="BtApellido1_M"  class="form-control text-center" id="inputApellido" readonly>
+                                </div>
+                                                    
+                                <div class="form-group col-md-4">
+                                <input type="text" value="<?php echo ($persona->getApellido2())?>" name="BtApellido2_M"  class="form-control text-center" id="inputApellido" readonly>
+                                </div>
+                            </div>
+                               <!--
                                 <div class="form-row">
                                     <label for="inpuinputFechaNacimiento" class="col-md-3 col-form-label">Fecha Nacimiento</label>
                                     <div class="form-group col-md-3">
@@ -281,14 +303,15 @@
                                     </div>
                                 </div>                
                         
+                                -->
                         
                         
+                        <p class="card-text">INSERTADO CORRECTAMENTE.</p>
+                        <h5 class="card-title">SELECCIONA QUE QUIERES HACER AHORA</h5>
+                       <!--  <input type="submit" value="INSERTAR" name="BtInsertar" class="btn btn-primary"> -->
                         
-                        <p class="card-text">Asegurate de cumplimentar todos los campos y que sean correctos.</p>
-                        <h5 class="card-title">GRACIAS</h5>
-                        <input type="submit" value="INSERTAR" name="BtInsertar" class="btn btn-primary">
-                        </form>
-                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                         <a href="/CBCV/CBCiutatVella/PDO/Presentacion/InsertarPersona.php" class="btn btn-primary">INSERTAR NUEVO SOCIO</a>
+                         <a href="/CBCV/CBCiutatVella/" class="btn btn-primary">INICIO</a>
                     </div>
                     <div class="card-footer text-muted">
                         © CBCV
@@ -303,32 +326,98 @@
                      -->
 
 <?php
+        }else{
+?>
+            <div class="col-xs-7 col-sm-10 col-md-7 col-lg-5">
+            <div class="card text-center">
+                    <div class="card-header">
+                        NUEVO SOCIO NUMERO:  ERROR AL INSERTAR, VERIFICA LOS DATOS
+                    </div>
+                    <div class="card-body">
+                        
 
-// Para cambiar el formato de la fecha de: 29/12/1981 a: 1981/12/29  osea de d/m/a a: yyyy/m/d
-// implode('/',array_reverse(explode('/',$_POST['BtFecha_Nacimiento'])));
-if (isset($_POST['BtInsertar'])) {
-   
-    $error="";         
-   $objPersona = new Persona(null, $_POST['BtDNI'], $_POST['BtNombre'], $_POST['BtApellido1'],$_POST['BtApellido2'],implode('/',array_reverse(explode('/',$_POST['BtFecha_Nacimiento']))),$_POST['BtTelefono'],$_POST['BteMail'],$_POST['BtDireccion'],$_POST['BtTipo'],$_POST['BtCategoria']);
-   
-   $resultado = $objPersona -> Insertar();
+                            <div class="form-row">
+                                <label for="inputID_Persona" class="col-md-4 col-form-label">Numero de SOCIO</label>
+                                <div class="form-group col-md-4 ">
+                                    <input type="text" placeholder="ERROR" name="BtID_Persona" required class="form-control  text-center" id="inputID_Persona" readonly>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <label for="inputDNI" class="col-md-4 col-form-label">DNI</label>
+                                <div class="form-group col-md-4 ">
+                                    <input type="text" placeholder="ERROR" name="BtDNI" required class="form-control  text-center" id="inputDNI"readonly>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <label for="inputNombre" class="col-md-4 col-form-label">Nombre</label>
+                                <div class="form-group col-md-4 ">
+                                    <input type="text" placeholder="ERROR" name="BtNombre" required class="form-control  text-center" id="inputNombre"readonly>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <label for="inputApellido" class="col-md-4 col-form-label">Apellidos</label>
+                                <div class="form-group col-md-4">
+                                <input type="text" placeholder="ERROR" name="BtApellido1_M"  class="form-control text-center" id="inputApellido" readonly>
+                                </div>
+                                                    
+                                <div class="form-group col-md-4">
+                                <input type="text" placeholder="ERROR" name="BtApellido2_M"  class="form-control text-center" id="inputApellido" readonly>
+                                </div>
+                            </div>
+                               <!--
+                                <div class="form-row">
+                                    <label for="inpuinputFechaNacimiento" class="col-md-3 col-form-label">Fecha Nacimiento</label>
+                                    <div class="form-group col-md-3">
+                                        <input type="date" name="BtFecha_Nacimiento" required class="form-control" id="inputFechaNacimiento" placeholder="Fecha Nacimiento">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="tel" name="BtTelefono" required class="form-control" id="inputTelefono" placeholder="Telefono">
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <input type="email" name="BteMail" required class="form-control" id="inputeMail" placeholder="eMail">
+                                </div>
+                                <div class="form-group ">
+                                    <input type="text" name="BtDireccion" required class="form-control" id="inputDireccion" placeholder="Direccion">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <select class="custom-select mr-sm-2" name="BtTipo" required id="inlineFormTipoSelect">
+                                            <option selected>Selecciona un tipo</option>
+                                            <?php
+                                                foreach ($arrayOpciones as $opcion) 
+                                            {?>
+                                            <option value="<?php echo $opcion ?>"><?php echo $opcion ?></option>
+                                    <?php   } ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" name="BtCategoria" required class="form-control" id="inputCategoria" placeholder="Categoria">
+                                    </div>
+                                </div>                
+                        
+                                -->
+                        
+                        
+                        <p class="card-text">NO SE HA PODIDO INSERTAR EL REGISTRO VERIFICA LOS DATOS.</p>
+                        <h5 class="card-title">SELECCIONA QUE QUIERES HACER AHORA</h5>
+                       <!--  <input type="submit" value="INSERTAR" name="BtInsertar" class="btn btn-primary"> -->
+                        
+                         <a href="/CBCV/CBCiutatVella/PDO/Presentacion/InsertarPersona.php" class="btn btn-primary">INSERTAR NUEVO SOCIO</a>
+                         <a href="/CBCV/CBCiutatVella/" class="btn btn-primary">INICIO</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        © CBCV
+                    </div>
+                </div>
+        </div>
+    
+</div>
 
-   // Mostrar el resultado de los registro de la base de datos
-    if ($resultado){
-        echo "Registro Insertado";
-        $_SESSION['DNI'] = $objPersona -> getDNI();
-        echo '<script type="text/javascript">
-        window.location = "/CBCV/CBCiutatVella/PDO/Presentacion/ResultadoInsertarPersona.php"
-        </script>';
-    }else{
-        echo "Error en la Inserción"; 
-        $_SESSION['DNI'] = '-';
-        echo '<script type="text/javascript">
-        window.location = "/CBCV/CBCiutatVella/PDO/Presentacion/ResultadoInsertarPersona.php"
-        </script>';
-    }
-          
-}
+
+
+  <?php      }
+
 
 ?>
 

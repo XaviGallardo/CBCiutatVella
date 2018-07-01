@@ -2,9 +2,9 @@ body{
     height: 100vh;
 }
 #Fondo{
-    height: 100vh;
+  /*  height: 100vh; */
 
-    background: burlywood;
+    /* background: burlywood; */
     
     /* Ubicación de la imagen */
 
